@@ -1,0 +1,132 @@
+{
+  "signup": [
+    {
+      "id": 0,
+      "username": "신지연",
+      "nickname": "tlswldus",
+      "password": "1234qwer",
+      "passwordCheck": "1234qwer"
+    },
+    {
+      "username": {
+        "username": "testtest",
+        "nickname": "testtest",
+        "password": "testtesttesttest",
+        "passwordCheck": "testtesttesttest"
+      },
+      "id": 1
+    },
+    {
+      "username": {
+        "username": "tlswldus",
+        "nickname": "tlswldus",
+        "password": "tlswldusWKdWkd",
+        "passwordCheck": "testtest"
+      },
+      "id": 2
+    },
+    {
+      "username": {
+        "username": "",
+        "nickname": "",
+        "password": "",
+        "passwordCheck": ""
+      },
+      "id": 3
+    },
+    {
+      "username": {
+        "username": "asdf",
+        "nickname": "asdfasdf",
+        "password": "asdfasdf",
+        "passwordCheck": "asdfasdf"
+      },
+      "id": 4
+    },
+    {
+      "username": {
+        "username": "1112",
+        "nickname": "1212",
+        "password": "121212",
+        "passwordCheck": "121212"
+      },
+      "id": 5
+    },
+    {
+      "username": {
+        "username": "2323",
+        "nickname": "2323",
+        "password": "232323",
+        "passwordCheck": "232323"
+      },
+      "id": 6
+    },
+    {
+      "username": {
+        "username": "asdfasdf",
+        "nickname": "asdf",
+        "password": "asdfasdf",
+        "passwordCheck": "asdfasdf"
+      },
+      "id": 7
+    },
+    {
+      "username": {
+        "username": "test123",
+        "nickname": "test123",
+        "password": "test123",
+        "passwordCheck": "test123"
+      },
+      "id": 8
+    }
+  ],
+  "login": [
+    {
+      "id": 0,
+      "username": "신지연",
+      "password": "1234qwer"
+    },
+    {
+      "username": {
+        "username": "dfdf",
+        "password": "dfdf"
+      },
+      "id": 1
+    },
+    {
+      "username": {
+        "username": "asdf",
+        "password": "asdf"
+      },
+      "id": 2
+    },
+    {
+      "username": {
+        "username": "dfdf",
+        "password": "dfdf"
+      },
+      "id": 3
+    },
+    {
+      "username": {
+        "username": "1234",
+        "password": "1234"
+      },
+      "id": 4
+    },
+    {
+      "username": {
+        "username": "",
+        "password": ""
+      },
+      "id": 5
+    },
+    {
+      "username": {
+        "username": "ASDF",
+        "password": "ASDF"
+      },
+      "id": 6
+    }
+  ]
+}
