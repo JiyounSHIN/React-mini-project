@@ -3,7 +3,7 @@ import React from "react";
 import styled from "styled-components";
 import '.././App.css';
 import { Link } from "react-router-dom";
-import logo1 from '.././elements/images/logo_1.png';
+import catlogo from '.././elements/images/cat_img.png';
 
 const Header = () => {
     if (window.location.pathname === "/signup") return null;
@@ -13,7 +13,7 @@ const Header = () => {
             <Top>
                 <TopLeft>
                     <Link to='/'>
-                        <img src={logo1} width="90px" height="90px" />
+                        <img src={catlogo} width="auto" height="75px" />
                     </Link>
                 </TopLeft>
                 <TopRight>
@@ -34,7 +34,7 @@ const Top = styled.header`
 `;
 const TopLeft = styled.div`
     position : absolute;
-    top : 6px;
+    top : 13px;
     left : 20px;
 `;
 const TopRight = styled.div`
