@@ -44,7 +44,7 @@ const LogIn = () => {
                     <button onClick={login}>로그인하기</button>
                 </ButtonWrap>
             </Container>
-            <IMAGE src={catimg} width="170px" height="auto" />
+            <IMAGE src={catimg} />
         </div>
     )
 }
@@ -79,7 +79,7 @@ const SubTitle = styled.p`
 
 const Container = styled.div`
     display : inline-block;
-    height : 66vh;
+    height : 50vh;
     width : 50%;
     margin-top : 43px;
     border : 4px solid #EC728D;
@@ -122,7 +122,7 @@ const Link = styled.button`
 const ButtonWrap = styled.div`
     position : relative; 
     gap : 10px;
-    margin-top : 210px;
+    margin-top : 90px;
     & > button{
         position : absolute;
         top: 101%;
@@ -179,10 +179,12 @@ const TextAny = styled.p`
 `;
 
 const IMAGE = styled.img`
+    max-widht : 170px;
+    width : 17%;  
+    height : auto;
     position : absolute;
-    top : 160px;
-    right : calc(24% - 60px);
-
+    top : 500px;
+    left : calc(9% - 10px);
 `;
 
 export default LogIn;
