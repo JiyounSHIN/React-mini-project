@@ -20,7 +20,7 @@ import IconButton from "@mui/material/IconButton";
 import ArrowBackIosRoundedIcon from "@mui/icons-material/ArrowBackIosRounded";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-import { Card } from "@mui/material";
+import CommentWrite from "./commentwrite";
 
 function Copyright() {
   return (
@@ -49,14 +49,14 @@ export default function Post() {
   // 해당 게시물 정보를 보여주기 위한 객체
   const [data, setData] = useState([
     {
-        title: "",
-        imageUrl: "",
-        category: "",
-        content: "",
-      },
-    ]);
-  
-    // 전체 게시물 목록 객체
+      title: "",
+      imageUrl: "",
+      category: "",
+      content: "",
+    },
+  ]);
+
+  // 전체 게시물 목록 객체
   const [post, setPost] = useState([
     {
       title: "",
@@ -74,11 +74,6 @@ export default function Post() {
     })();
   }, [setPost]);
 
-//   console.log(post);
-//   const card = post[post_index - 1];
-  console.log("^^^^^^^^^^^^^^^^^^^^^^^");
-  console.log(data);
-
   return (
     <ThemeProvider theme={theme}>
       <Container maxWidth="sm">
@@ -86,9 +81,12 @@ export default function Post() {
         <Grid container alignItems="center" sx={{ my: 4 }}>
           {/* 이전 페이지로 이동 */}
           <Grid item>
-            <IconButton aria-label="move to category" onClick={() => {
+            <IconButton
+              aria-label="move to category"
+              onClick={() => {
                 navigate(-1);
-              }}>
+              }}
+            >
               <ArrowBackIosRoundedIcon />
             </IconButton>
           </Grid>
@@ -181,6 +179,7 @@ export default function Post() {
               </Button>
             </Grid>
           </Grid>
+          {/* <CommentWrite/> */}
 
           <List
             sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
