@@ -36,10 +36,10 @@ const theme = createTheme();
 export default function Main() {
   const navigate = useNavigate();
 
-   // 카테고리 목록
-   const categories = ["전체", "일상", "여행", "용품"];
-   const [activeCat, setActiveCat] = useState(categories);
-   const [data, setData] = useState([
+  // 카테고리 목록
+  const categories = ["전체", "일상", "여행", "용품"];
+  const [activeCat, setActiveCat] = useState(categories);
+  const [data, setData] = useState([
     {
       id: 0,
       title: "title",
@@ -52,7 +52,6 @@ export default function Main() {
       likeCnt: 0,
     },
   ]);
-
 
   // 게시물 목록 불러오기
   const [axiosPosts, setAxiosPosts] = useState([
@@ -69,7 +68,6 @@ export default function Main() {
     },
   ]);
 
-
   useEffect(() => {
     (async () => {
       const response = await axios.get("http://localhost:5001/postResponseDto");
@@ -78,7 +76,6 @@ export default function Main() {
     })();
   }, [setAxiosPosts]);
 
- 
   const activeCategory = (btn) => {
     if (btn === "전체") {
       setData(axiosPosts);
@@ -140,7 +137,6 @@ export default function Main() {
           <Grid container spacing={4}>
             {data.map((card) => (
               <PostItem card={card} />
-
             ))}
           </Grid>
         </Container>
@@ -151,7 +147,7 @@ export default function Main() {
         color="secondary"
         aria-label="post"
         sx={{ position: "fixed", bottom: 20, right: 40 }}
-        onClick={() => navigate('/postwrite')}
+        onClick={() => navigate("/postwrite")}
       >
         <EditIcon />
       </Fab>

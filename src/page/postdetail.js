@@ -1,307 +1,179 @@
-// import React from "react";
-// import ".././App.css";
-// import CssBaseline from "@mui/material/CssBaseline";
-// import Link from "@mui/material/Link";
-// import Box from "@mui/material/Box";
-// import Typography from "@mui/material/Typography";
-// import Container from "@mui/material/Container";
-// import { createTheme, ThemeProvider } from "@mui/material/styles";
-// import ImageList from "@mui/material/ImageList";
-// import ImageListItem from "@mui/material/ImageListItem";
-// import ImageListItemBar from "@mui/material/ImageListItemBar";
-
-// function Copyright() {
-//   return (
-//     <Typography variant="body2" color="text.secondary" align="center">
-//       {"Copyright © "}
-//       <Link
-//         color="inherit"
-//         href="https://github.com/JiyounSHIN/React-mini-project"
-//       >
-//         Hanghae-B Team 10
-//       </Link>{" "}
-//       {new Date().getFullYear()}
-//       {"."}
-//     </Typography>
-//   );
-// }
-
-// const theme = createTheme();
-
-// export default function Post() {
-//   return (
-//     <ThemeProvider theme={theme}>
-//       <Container component="main" maxWidth="xs">
-//         {/* <CssBaseline /> */}
-//         <Box
-//           sx={{
-//             marginTop: 8,
-//             display: "flex",
-//             flexDirection: "column",
-//             // alignItems: "center",
-//           }}
-//         >
-//           {itemData.map((item) => (
-//             <ImageListItem key={item.img}>
-//               <img
-//                 src={`${item.img}?w=248&fit=crop&auto=format`}
-//                 srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
-//                 alt={item.title}
-//                 loading="lazy"
-//               />
-//               <ImageListItemBar
-//                 title={item.title}
-//                 subtitle={<span>by: {item.author}</span>}
-//                 position="below"
-//               />
-//             </ImageListItem>
-//           ))}
-//         </Box>
-
-
-        
-//       </Container>
-
-//       {/* Footer */}
-//       <Box sx={{ bgcolor: "background.paper", p: 8 }} component="footer">
-//         <Copyright />
-//       </Box>
-//     </ThemeProvider>
-//   );
-// }
-
-// const itemData = [
-//   {
-//     img: "https://bunny.jjalbot.com/2022/02/d8RfM5c0g.jpeg",
-//     title: "Breakfast",
-//     author: "@bkristastucchio",
-//   },
-// ];
-
 import React from "react";
-import ".././App.css"
-import styled from "styled-components";
-import { useNavigate, useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { postUpdateAPI } from "../redux/modules/postM";
-import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import { storage } from "../shared/firebase";
+import ".././App.css";
+import Link from "@mui/material/Link";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import TextField from "@mui/material/TextField";
+import Grid from "@mui/material/Grid";
+import Button from "@mui/material/Button";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import Divider from "@mui/material/Divider";
+import ListItemText from "@mui/material/ListItemText";
+import ListItemAvatar from "@mui/material/ListItemAvatar";
+import Avatar from "@mui/material/Avatar";
+import FavoriteBorderRoundedIcon from "@mui/icons-material/FavoriteBorderRounded";
+import FavoriteRoundedIcon from "@mui/icons-material/FavoriteRounded";
+import IconButton from "@mui/material/IconButton";
+import ArrowBackIosRoundedIcon from "@mui/icons-material/ArrowBackIosRounded";
 
-const Postupdate = () => {
-    const navigate = useNavigate();
-    const dispatch = useDispatch();
-
-    // const params = useParams();
-    // const post_index = params.index;
-    const post_list = useSelector(state => state.postM.list);
-    console.log(post_list)
-
-    // 카테고리 List 
-    const [selected, setSelected] = React.useState();
-    const handleSelect = (e) => {
-        console.log(e.target.value)
-        setSelected(e.target.value);
-    };
-
-    // 이미지 업로드 / 미리보기
-    const fileInput = React.useRef("");
-    const previewimage = React.useRef("");
-    const onLoadFile = (e) => {
-        // console.log(e.target.files[0]);
-        // console.log(fileInput.current.files[0]);
-        const file = fileInput.current.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.readAsDataURL(file);
-
-            reader.onload = () => {
-                previewimage.current.style.backgroundImage = `url(${reader.result})`;
-            }; //console.log(previewimage);
-        }
-    }
-
-    // 작성란 data
-    const title_ref = React.useRef();
-    const content_ref = React.useRef();
-
-    // "자랑등록: 버튼" 게시물 서버로 업로드 
-    const handleClick = async () => {
-        // console.log(selected, title_ref.current.value, content_ref.current.value)
-        // 이미지 : 스토리지에서 URL 받아서 전송하기 
-        let image = fileInput.current?.files[0];
-        const upload_file = await uploadBytes(ref(storage, `images/${image.name}`), image);
-        const file_url = await getDownloadURL(upload_file.ref);
-        // console.log(file_url);
-
-        dispatch(postUpdateAPI({
-            title: title_ref.current.value,
-            imageUrl: file_url,
-            category: selected,
-            content: content_ref.current.value
-        }))
-    };
-
-
-    return (
-        <div style={{ position: "absolute", width: "100%" }}>
-            <Nickst><p>nickname 님!</p> 수정(삭제) PAGE입니다</Nickst>
-            <Dropst>
-                <label>카테고리 :</label>
-                <Select onChange={handleSelect}>
-                    <option key="일상" value="일상">일상</option>
-                    <option key="여행" value="여행">여행</option>
-                    <option key="애견용품" value="애견용품">애견용품</option>
-                </Select>
-            </Dropst>
-            <Line />
-            <Image>
-                <PicSelect>
-                    <label style={{ border: "3px solid #602d38", padding: "7px", borderRadius: "10px" }} for="ex_filename"> 사진선택</label>
-                    <input value="이미지파일" disabled="disabled" style={{ border: "3px solid #eee", padding: "7px", marginLeft: "5px", width: "30%" }} />
-                    <input type="file" id="ex_filename" ref={fileInput} onChange={onLoadFile} style={{ visibility: "hidden" }} />
-                </PicSelect>
-                <Preview ref={previewimage}></Preview>
-            </Image>
-            <Title><p style={{ marginRight: "auto", marginBottom: "5px" }}>Title : </p><input ref={title_ref} /></Title>
-            <Content><p style={{ marginRight: "auto", marginBottom: "5px" }}>Content</p><textarea ref={content_ref} /></Content>
-            <ButtonWrap>
-                <button onClick={handleClick}>게시글 수정하기</button>
-                <button onClick={handleClick}>게시글 삭제하기</button>
-            </ButtonWrap>
-        </div>
-    )
+function Copyright() {
+  return (
+    <Typography variant="body2" color="text.secondary" align="center">
+      {"Copyright © "}
+      <Link
+        color="inherit"
+        href="https://github.com/JiyounSHIN/React-mini-project"
+      >
+        Hanghae-B Team 10
+      </Link>{" "}
+      {new Date().getFullYear()}
+      {"."}
+    </Typography>
+  );
 }
 
-const Nickst = styled.p`
-    position : relative;
-    text-align : left;
-    top : -10px;
-    left : 30px;
-    font-size : 20px;
-    &>p {
-        color : #602d38;
-        font-size : 30px;
-        margin-top : 10px;
-        margin-bottom : 5px;
-    }
-`;
+const theme = createTheme();
 
-const Dropst = styled.div`
-    display : flex;
-    padding : 20px;
-    margin-left : 10px;
-    align-item : row;
-    gap : 20px;
-    & > label {
-        font-size : 18px;
-    }
-`;
+export default function Post() {
+  return (
+    <ThemeProvider theme={theme}>
+      <Container maxWidth="sm">
+        {/* 카테고리 */}
+        <Grid container alignItems="center" sx={{ my: 4 }}>
+          <Grid item>
+            <IconButton aria-label="add to favorites">
+              <ArrowBackIosRoundedIcon />
+            </IconButton>
+          </Grid>
+          <Grid item xs>
+            <Typography
+              gutterBottom
+              variant="body1"
+              component="div"
+              align="left"
+              sx={{ my: "auto" }}
+            >
+              카테고리
+            </Typography>
+          </Grid>
+          <Grid item>
+            <IconButton aria-label="add to favorites">
+              <FavoriteRoundedIcon />
+            </IconButton>
+          </Grid>
+        </Grid>
 
-const Select = styled.select`
-    margin-top : -3px;
-    min-width : 0;
-    display : block;
-    width : 30%;
-    padding : 8px; 8px;
-    font-family : jua;
-    font-size : inherit;
-    border : 1px solid transparent;
-    border-radius : 7px;
-    background : transparent;
-    &: focus {
-        border-color : pink;
-    }
-`;
+        {/* "#cfe8fc" */}
+        <Box sx={{ bgcolor: "#fff", height: "100%" }}>
+          {/* 이미지 */}
+          <img
+            src="https://bunny.jjalbot.com/2022/02/d8RfM5c0g.jpeg"
+            alt="img"
+            width="100%"
+          />
 
-const Line = styled.hr`
-    width : 39%;
-    margin-left : 22px;
-    margin-top : -19px;
-    border: 0;
-    border-bottom: 1px dashed #ccc;
-    background: #999;
-`;
+          {/* 제목, 내용, 댓글 */}
+          <Box sx={{ my: 3 }}>
+            <Grid container alignItems="center" sx={{ mt: 4 }}>
+              <Grid item xs>
+                <Typography
+                  gutterBottom
+                  variant="h4"
+                  component="div"
+                  align="left"
+                >
+                  Title
+                </Typography>
+              </Grid>
+              <Grid item>
+                <Typography
+                  gutterBottom
+                  color="text.secondary"
+                  variant="body2"
+                  component="div"
+                  align="right"
+                >
+                  nickname
+                </Typography>
+              </Grid>
+            </Grid>
+            <Typography variant="body1" align="left">
+              Pinstriped cornflower blue cotton blouse takes you on a walk to
+              the park or just down the hall.
+            </Typography>
+          </Box>
 
-const Image = styled.div`
-    background : yellow;
-    position : relative;
-    max-width : 100%;
-    align-item : row;
-`;
-const PicSelect = styled.div`
-    position : absolute;
-    top : 20px;
-    left : calc(10% - 10px); 
-    font-size :20px;
-`;
+          <Divider />
 
-const Preview = styled.div`
-    position : absolute;
-    top : 10px;
-    right : calc(10% - 10px);
-    border : 4px solid transparent;
-    height: 300px;
-    width : 45%;
-    background-repeat: no-repeat;
-    background-size : auto 350px;
-    background-position : center;
-`;
+          {/* 댓글 컴포넌트 부분 */}
+          <Box sx={{ mt: 4 }}>
+            <Typography variant="body1" align="left">
+              댓글 (0)
+            </Typography>
+          </Box>
+          {/* 댓글 작성하기 */}
+          <Grid container spacing={2} alignItems="center" sx={{ mt: 1 }}>
+            <Grid item xs={12} sm={10}>
+              <TextField
+                autoComplete="comment"
+                name="comment"
+                required
+                fullWidth
+                color="secondary"
+                id="comment"
+                autoFocus
+              />
+            </Grid>
+            <Grid item xs={12} sm={2}>
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                color="secondary"
+              >
+                작성
+              </Button>
+            </Grid>
+          </Grid>
 
-const Title = styled.div`
-    display : flex;
-    flex-direction : column;
-    justify-content : center;
-    align-item : center;
-    margin-top : 350px;
-    margin-left : 10%;
-    font-size : 24px;
-    &> input {
-        padding: 8px;
-        width: 75vw;
-    }
-`;
-const Content = styled.div`
-    display : flex;
-    flex-direction : column;
-    justify-content : center;
-    align-item : center;
-    margin-left : 10%;
-    margin-bottom : 1%;
-    font-size : 24px;
-    & > textarea {
-        padding: 8px;
-        width: 75vw;
-        height : 20vh;
-    }
-`;
+          <List
+            sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
+          >
+            <ListItem alignItems="flex-start">
+              <ListItemAvatar>
+                <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+              </ListItemAvatar>
+              <ListItemText
+                primary="comment"
+                secondary={
+                  <React.Fragment>
+                    <Typography
+                      sx={{ display: "inline" }}
+                      component="span"
+                      variant="body2"
+                      color="text.primary"
+                    >
+                      Nickname
+                    </Typography>
+                    {" — 2022.06.15"}
+                  </React.Fragment>
+                }
+              />
+            </ListItem>
+          </List>
+        </Box>
+      </Container>
 
-const ButtonWrap = styled.div`
-    display : flex;
-    flex-direction : row;
-    justify-content : center;
-    align-item : center;
-    gap : 30px;
-    margin-top : 10px;
-    &>button {
-        font-family : jua;
-        font-size : 24px;
-        height : 50px;
-        width : 180px;
-        color : white;
-        background : #EC728D;
-        border-radius : 40px;
-        border : 3px solid #602d38;
-        cursor : pointer;
-        &:hover{
-            color : #EC728D;
-            background : transparent;
-            border-radius : 20px;
-            border : 3px solid #602d38;
-            }
-
-    }
-    
-`;
-
-export default Postupdate;
-
+      {/* Footer */}
+      <Box
+        sx={{ bgcolor: "background.paper", pt: 12, pb: 8 }}
+        component="footer"
+      >
+        <Copyright />
+      </Box>
+    </ThemeProvider>
+  );
+}
