@@ -1,15 +1,20 @@
 import React from "react";
 import ".././App.css"
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { postWriteFB } from "../redux/modules/postM";
+import { useNavigate, useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { postUpdateAPI } from "../redux/modules/postM";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { storage } from "../shared/firebase";
 
 const Postupdate = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
+
+    // const params = useParams();
+    // const post_index = params.index;
+    const post_list = useSelector(state => state.postM.list);
+    console.log(post_list)
 
     // 카테고리 List 
     const [selected, setSelected] = React.useState();
@@ -48,7 +53,7 @@ const Postupdate = () => {
         const file_url = await getDownloadURL(upload_file.ref);
         // console.log(file_url);
 
-        dispatch(postWriteFB({
+        dispatch(postUpdateAPI({
             title: title_ref.current.value,
             imageUrl: file_url,
             category: selected,
@@ -59,7 +64,7 @@ const Postupdate = () => {
 
     return (
         <div style={{ position: "absolute", width: "100%" }}>
-            <Nickst><p>nickname 님!</p>반려동물을 소개해주세요</Nickst>
+            <Nickst><p>nickname 님!</p> 수정(삭제) PAGE입니다</Nickst>
             <Dropst>
                 <label>카테고리 :</label>
                 <Select onChange={handleSelect}>
@@ -77,9 +82,12 @@ const Postupdate = () => {
                 </PicSelect>
                 <Preview ref={previewimage}></Preview>
             </Image>
-            <Title><p style={{ marginRight:"auto", marginBottom: "5px" }}>Title : </p><input ref={title_ref} /></Title>
-            <Content><p style={{ marginRight:"auto", marginBottom: "5px" }}>Content</p><textarea ref={content_ref} /></Content>
-            <ButtonWrap onClick={handleClick}>게시글 올리기</ButtonWrap>
+            <Title><p style={{ marginRight: "auto", marginBottom: "5px" }}>Title : </p><input ref={title_ref} /></Title>
+            <Content><p style={{ marginRight: "auto", marginBottom: "5px" }}>Content</p><textarea ref={content_ref} /></Content>
+            <ButtonWrap>
+                <button onClick={handleClick}>게시글 수정하기</button>
+                <button onClick={handleClick}>게시글 삭제하기</button>
+            </ButtonWrap>
         </div>
     )
 }
@@ -189,25 +197,30 @@ const Content = styled.div`
 
 const ButtonWrap = styled.div`
     display : flex;
-    flex-direction : column;
-    justify-content : select-around;
-    margin : 0 auto;
+    flex-direction : row;
+    justify-content : center;
     align-item : center;
-    font-family : jua;
-    font-size : 24px;
-    height : 40px;
-    width : 180px;
-    color : white;
-    background : #EC728D;
-    border-radius : 40px;
-    border : 3px solid #602d38;
-    cursor : pointer;
-    &:hover{
-        color : #EC728D;
-        background : transparent;
-        border-radius : 20px;
+    gap : 30px;
+    margin-top : 10px;
+    &>button {
+        font-family : jua;
+        font-size : 24px;
+        height : 50px;
+        width : 180px;
+        color : white;
+        background : #EC728D;
+        border-radius : 40px;
         border : 3px solid #602d38;
-        }
+        cursor : pointer;
+        &:hover{
+            color : #EC728D;
+            background : transparent;
+            border-radius : 20px;
+            border : 3px solid #602d38;
+            }
+
+    }
+    
 `;
 
 export default Postupdate;

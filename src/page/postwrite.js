@@ -3,7 +3,7 @@ import ".././App.css"
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { postWriteFB } from "../redux/modules/postM";
+import { postWriteAPI } from "../redux/modules/postM";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { storage } from "../shared/firebase";
 
@@ -44,13 +44,16 @@ const Postwrite = () => {
         // console.log(selected, title_ref.current.value, content_ref.current.value)
         // 이미지 : 스토리지에서 URL 받아서 전송하기 
         let image = fileInput.current?.files[0];
-        const upload_file = await uploadBytes(ref(storage, `images/${image.name}`), image);
-        const file_url = await getDownloadURL(upload_file.ref);
+        console.log(image.name);
+        // const upload_file = await uploadBytes(ref(storage, `images/${image.name}`), image);
+        // const file_url = await getDownloadURL(upload_file.ref);
         // console.log(file_url);
-
-        dispatch(postWriteFB({
+        const formData = new FormData();
+        formData.append("imageUrl", image.name);
+        
+        dispatch(postWriteAPI({
             title: title_ref.current.value,
-            imageUrl: file_url,
+            imageUrl: formData,
             category: selected,
             content: content_ref.current.value
         }))
@@ -77,8 +80,8 @@ const Postwrite = () => {
                 </PicSelect>
                 <Preview ref={previewimage}></Preview>
             </Image>
-            <Title><p style={{ marginRight:"auto", marginBottom: "5px" }}>Title : </p><input ref={title_ref} /></Title>
-            <Content><p style={{ marginRight:"auto", marginBottom: "5px" }}>Content</p><textarea ref={content_ref} /></Content>
+            <Title><p style={{ marginRight: "auto", marginBottom: "5px" }}>Title : </p><input ref={title_ref} /></Title>
+            <Content><p style={{ marginRight: "auto", marginBottom: "5px" }}>Content</p><textarea ref={content_ref} /></Content>
             <ButtonWrap onClick={handleClick}>게시글 올리기</ButtonWrap>
         </div>
     )

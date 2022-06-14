@@ -36,104 +36,6 @@
         "password": ""
       },
       "id": 2
-    },
-    {
-      "username": {
-        "username": "",
-        "password": ""
-      },
-      "id": 3
-    },
-    {
-      "username": {
-        "username": "",
-        "password": ""
-      },
-      "id": 4
-    },
-    {
-      "username": {
-        "username": "",
-        "password": ""
-      },
-      "id": 5
-    },
-    {
-      "username": {
-        "username": "",
-        "password": ""
-      },
-      "id": 6
-    },
-    {
-      "username": {
-        "username": "",
-        "password": ""
-      },
-      "id": 7
-    },
-    {
-      "username": {
-        "username": "",
-        "password": ""
-      },
-      "id": 8
-    },
-    {
-      "username": {
-        "username": "",
-        "password": ""
-      },
-      "id": 9
-    },
-    {
-      "username": {
-        "username": "",
-        "password": ""
-      },
-      "id": 10
-    },
-    {
-      "username": {
-        "username": "",
-        "password": ""
-      },
-      "id": 11
-    },
-    {
-      "username": {
-        "username": "",
-        "password": ""
-      },
-      "id": 12
-    },
-    {
-      "username": {
-        "username": "",
-        "password": ""
-      },
-      "id": 13
-    },
-    {
-      "username": {
-        "username": "",
-        "password": ""
-      },
-      "id": 14
-    },
-    {
-      "username": {
-        "username": "",
-        "password": ""
-      },
-      "id": 15
-    },
-    {
-      "username": {
-        "username": "",
-        "password": ""
-      },
-      "id": 16
     }
   ],
   "post": [
@@ -152,24 +54,18 @@
       "id": 1
     },
     {
-      "title": "왜 이게 안되지? ",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/hw-magazine.appspot.com/o/images%2F20210201112021.jpg?alt=media&token=52354261-f470-4f6a-8cb8-62ff1cf0b49f",
-      "category": "애견용품",
-      "content": "이건 또 왜 ",
+      "title": "시원~~~ ",
+      "imageUrl": {},
+      "category": "여행",
+      "content": "하다",
       "id": 2
     },
     {
-      "title": "힐링이 필요해",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/hw-magazine.appspot.com/o/images%2F%ED%9E%90%EB%A7%81%ED%95%98%EA%B3%A0%EC%8B%B6%EB%8B%A4.jpg?alt=media&token=af8b0caf-9a19-4c8b-a9c1-919ff2952c2f",
-      "content": "예쁘다",
-      "id": 3
-    },
-    {
-      "title": "여행",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/hw-magazine.appspot.com/o/images%2F%ED%92%8D%EA%B2%BD2.jpg?alt=media&token=69772c49-e9b4-463e-a8ff-2d314298d164",
+      "title": "날씨가",
+      "imageUrl": {},
       "category": "여행",
-      "content": "ㅇㅇㅇ",
-      "id": 4
+      "content": "흐리구먼",
+      "id": 3
     }
   ]
 }
