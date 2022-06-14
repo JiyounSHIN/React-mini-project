@@ -3,6 +3,7 @@
     {
       "title": "멍멍",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/hw-magazine.appspot.com/o/images%2Fpets-3715733_1920.jpg?alt=media&token=da8b1615-e228-446f-aba1-1719a42f1ff6",
+      "category": "일상",
       "content": "멍멍",
       "username": "",
       "createdAt": "",
@@ -11,11 +12,22 @@
       "id": 1
     },
     {
-      "title": "냥이장난감",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/hw-magazine.appspot.com/o/images%2Fcat-323262_1920.jpg?alt=media&token=0158abc9-d7ab-4172-b783-327dfdaf1b61",
-      "category": "애견용품",
-      "content": "언제 스타일 맞추지? ",
-      "username": "",
+      "id": 2,
+      "title": "제목입니다2222",
+      "imageUrl": "https://bunny.jjalbot.com/2022/02/d8RfM5c0g.jpeg",
+      "category": "일상",
+      "content": "안녕하세요2222",
+      "username": "hehehih",
+      "createdAt": "2022-06-14T11:13:10.612847",
+      "modifiedAt": "2022-06-14T11:13:10.612847",
+      "likeCnt": 0
+    },
+    {
+      "title": "스타벅스 알바다녀왔어용",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/hw-magazine.appspot.com/o/images%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202022-06-14%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%209.05.42.png?alt=media&token=09f3ac37-b3f6-41df-bc02-861f8daad24b",
+      "category": "일상",
+      "content": "토이 귀여워",
+      "username": "toy",
       "createdAt": "",
       "modifiedAt": "",
       "likeCnt": "",
@@ -81,6 +93,20 @@
         "password": ""
       },
       "id": 2
+    },
+    {
+      "username": {
+        "username": "",
+        "password": ""
+      },
+      "id": 3
+    },
+    {
+      "username": {
+        "username": "",
+        "password": ""
+      },
+      "id": 4
     }
   ],
   "post": [
@@ -117,6 +143,18 @@
       "imageUrl": {},
       "content": "dddd",
       "id": 4
+    },
+    {
+      "title": "스타벅스 알바다녀왔어용",
+      "imageUrl": {},
+      "content": "토이 귀여워",
+      "id": 5
+    },
+    {
+      "title": "스타벅스 알바다녀왔어용",
+      "imageUrl": {},
+      "content": "토이 귀여워",
+      "id": 6
     }
   ]
 }

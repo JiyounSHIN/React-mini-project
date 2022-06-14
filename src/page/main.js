@@ -36,6 +36,24 @@ const theme = createTheme();
 export default function Main() {
   const navigate = useNavigate();
 
+   // 카테고리 목록
+   const categories = ["전체", "일상", "여행", "용품"];
+   const [activeCat, setActiveCat] = useState(categories);
+   const [data, setData] = useState([
+    {
+      id: 0,
+      title: "title",
+      imageUrl: "https://bunny.jjalbot.com/2022/02/d8RfM5c0g.jpeg",
+      category: "일상",
+      content: "content",
+      username: "username",
+      createdAt: "2022-06-14T11:13:06.657894",
+      modifiedAt: "2022-06-14T11:13:06.657894",
+      likeCnt: 0,
+    },
+  ]);
+
+
   // 게시물 목록 불러오기
   const [axiosPosts, setAxiosPosts] = useState([
     {
@@ -56,26 +74,11 @@ export default function Main() {
     (async () => {
       const response = await axios.get("http://localhost:5001/postResponseDto");
       setAxiosPosts(response.data);
+      setData(response.data);
     })();
   }, [setAxiosPosts]);
 
-  // 카테고리 목록
-  const categories = ["전체", "일상", "여행", "용품"];
-  const [activeCat, setActiveCat] = useState(categories);
-  const [data, setData] = useState([
-    {
-      id: 0,
-      title: "title",
-      imageUrl: "https://bunny.jjalbot.com/2022/02/d8RfM5c0g.jpeg",
-      category: "일상",
-      content: "content",
-      username: "username",
-      createdAt: "2022-06-14T11:13:06.657894",
-      modifiedAt: "2022-06-14T11:13:06.657894",
-      likeCnt: 0,
-    },
-  ]);
-
+ 
   const activeCategory = (btn) => {
     if (btn === "전체") {
       setData(axiosPosts);
