@@ -1,15 +1,100 @@
+// import React from "react";
+// import ".././App.css";
+// import CssBaseline from "@mui/material/CssBaseline";
+// import Link from "@mui/material/Link";
+// import Box from "@mui/material/Box";
+// import Typography from "@mui/material/Typography";
+// import Container from "@mui/material/Container";
+// import { createTheme, ThemeProvider } from "@mui/material/styles";
+// import ImageList from "@mui/material/ImageList";
+// import ImageListItem from "@mui/material/ImageListItem";
+// import ImageListItemBar from "@mui/material/ImageListItemBar";
+
+// function Copyright() {
+//   return (
+//     <Typography variant="body2" color="text.secondary" align="center">
+//       {"Copyright © "}
+//       <Link
+//         color="inherit"
+//         href="https://github.com/JiyounSHIN/React-mini-project"
+//       >
+//         Hanghae-B Team 10
+//       </Link>{" "}
+//       {new Date().getFullYear()}
+//       {"."}
+//     </Typography>
+//   );
+// }
+
+// const theme = createTheme();
+
+// export default function Post() {
+//   return (
+//     <ThemeProvider theme={theme}>
+//       <Container component="main" maxWidth="xs">
+//         {/* <CssBaseline /> */}
+//         <Box
+//           sx={{
+//             marginTop: 8,
+//             display: "flex",
+//             flexDirection: "column",
+//             // alignItems: "center",
+//           }}
+//         >
+//           {itemData.map((item) => (
+//             <ImageListItem key={item.img}>
+//               <img
+//                 src={`${item.img}?w=248&fit=crop&auto=format`}
+//                 srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
+//                 alt={item.title}
+//                 loading="lazy"
+//               />
+//               <ImageListItemBar
+//                 title={item.title}
+//                 subtitle={<span>by: {item.author}</span>}
+//                 position="below"
+//               />
+//             </ImageListItem>
+//           ))}
+//         </Box>
+
+
+        
+//       </Container>
+
+//       {/* Footer */}
+//       <Box sx={{ bgcolor: "background.paper", p: 8 }} component="footer">
+//         <Copyright />
+//       </Box>
+//     </ThemeProvider>
+//   );
+// }
+
+// const itemData = [
+//   {
+//     img: "https://bunny.jjalbot.com/2022/02/d8RfM5c0g.jpeg",
+//     title: "Breakfast",
+//     author: "@bkristastucchio",
+//   },
+// ];
+
 import React from "react";
 import ".././App.css"
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { postWriteAPI } from "../redux/modules/postM";
+import { useNavigate, useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { postUpdateAPI } from "../redux/modules/postM";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { storage } from "../shared/firebase";
 
-const Postwrite = () => {
+const Postupdate = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
+
+    // const params = useParams();
+    // const post_index = params.index;
+    const post_list = useSelector(state => state.postM.list);
+    console.log(post_list)
 
     // 카테고리 List 
     const [selected, setSelected] = React.useState();
@@ -44,16 +129,13 @@ const Postwrite = () => {
         // console.log(selected, title_ref.current.value, content_ref.current.value)
         // 이미지 : 스토리지에서 URL 받아서 전송하기 
         let image = fileInput.current?.files[0];
-        console.log(image.name);
-        // const upload_file = await uploadBytes(ref(storage, `images/${image.name}`), image);
-        // const file_url = await getDownloadURL(upload_file.ref);
+        const upload_file = await uploadBytes(ref(storage, `images/${image.name}`), image);
+        const file_url = await getDownloadURL(upload_file.ref);
         // console.log(file_url);
-        const formData = new FormData();
-        formData.append("imageUrl", image);
-        
-        dispatch(postWriteAPI({
+
+        dispatch(postUpdateAPI({
             title: title_ref.current.value,
-            imageUrl: formData,
+            imageUrl: file_url,
             category: selected,
             content: content_ref.current.value
         }))
@@ -62,13 +144,13 @@ const Postwrite = () => {
 
     return (
         <div style={{ position: "absolute", width: "100%" }}>
-            <Nickst><p>nickname 님!</p>반려동물을 소개해주세요</Nickst>
+            <Nickst><p>nickname 님!</p> 수정(삭제) PAGE입니다</Nickst>
             <Dropst>
                 <label>카테고리 :</label>
                 <Select onChange={handleSelect}>
                     <option key="일상" value="일상">일상</option>
                     <option key="여행" value="여행">여행</option>
-                    <option key="용품" value="용품">애견용품</option>
+                    <option key="애견용품" value="애견용품">애견용품</option>
                 </Select>
             </Dropst>
             <Line />
@@ -82,7 +164,10 @@ const Postwrite = () => {
             </Image>
             <Title><p style={{ marginRight: "auto", marginBottom: "5px" }}>Title : </p><input ref={title_ref} /></Title>
             <Content><p style={{ marginRight: "auto", marginBottom: "5px" }}>Content</p><textarea ref={content_ref} /></Content>
-            <ButtonWrap onClick={handleClick}>게시글 올리기</ButtonWrap>
+            <ButtonWrap>
+                <button onClick={handleClick}>게시글 수정하기</button>
+                <button onClick={handleClick}>게시글 삭제하기</button>
+            </ButtonWrap>
         </div>
     )
 }
@@ -192,25 +277,31 @@ const Content = styled.div`
 
 const ButtonWrap = styled.div`
     display : flex;
-    flex-direction : column;
-    justify-content : select-around;
-    margin : 0 auto;
+    flex-direction : row;
+    justify-content : center;
     align-item : center;
-    font-family : jua;
-    font-size : 24px;
-    height : 40px;
-    width : 180px;
-    color : white;
-    background : #EC728D;
-    border-radius : 40px;
-    border : 3px solid #602d38;
-    cursor : pointer;
-    &:hover{
-        color : #EC728D;
-        background : transparent;
-        border-radius : 20px;
+    gap : 30px;
+    margin-top : 10px;
+    &>button {
+        font-family : jua;
+        font-size : 24px;
+        height : 50px;
+        width : 180px;
+        color : white;
+        background : #EC728D;
+        border-radius : 40px;
         border : 3px solid #602d38;
-        }
+        cursor : pointer;
+        &:hover{
+            color : #EC728D;
+            background : transparent;
+            border-radius : 20px;
+            border : 3px solid #602d38;
+            }
+
+    }
+    
 `;
 
-export default Postwrite;
+export default Postupdate;
+

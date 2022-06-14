@@ -110,7 +110,7 @@ const Postupdate = () => {
                 <Select onChange={handleSelect}>
                     <option key="일상" value="일상">일상</option>
                     <option key="여행" value="여행">여행</option>
-                    <option key="애견용품" value="애견용품">애견용품</option>
+                    <option key="용품" value="용품">애견용품</option>
                 </Select>
             </Dropst>
             <Line />
