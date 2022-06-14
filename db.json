@@ -1,4 +1,61 @@
 {
+  "postResponseDto": [
+    {
+      "id": 1,
+      "title": "제목입니다1111",
+      "imageUrl": "https://bunny.jjalbot.com/2022/02/d8RfM5c0g.jpeg",
+      "category": "일상",
+      "content": "안녕하세요1111",
+      "username": "junsj119",
+      "createdAt": "2022-06-14T11:13:06.657894",
+      "modifiedAt": "2022-06-14T11:13:06.657894",
+      "likeCnt": 0
+    },
+    {
+      "id": 2,
+      "title": "제목입니다2222",
+      "imageUrl": "https://bunny.jjalbot.com/2022/02/d8RfM5c0g.jpeg",
+      "category": "일상",
+      "content": "안녕하세요2222",
+      "username": "junsj119",
+      "createdAt": "2022-06-14T11:13:10.612847",
+      "modifiedAt": "2022-06-14T11:13:10.612847",
+      "likeCnt": 0
+    },
+    {
+      "id": 3,
+      "title": "제목입니다3333",
+      "imageUrl": "https://bunny.jjalbot.com/2022/02/d8RfM5c0g.jpeg",
+      "category": "일상",
+      "content": "안녕하세요3333",
+      "username": "junsj119",
+      "createdAt": "2022-06-14T11:13:10.612847",
+      "modifiedAt": "2022-06-14T11:13:10.612847",
+      "likeCnt": 0
+    },
+    {
+      "id": 4,
+      "title": "제목입니다4444",
+      "imageUrl": "https://bunny.jjalbot.com/2022/02/d8RfM5c0g.jpeg",
+      "category": "여행",
+      "content": "안녕하세요44444",
+      "username": "junsj119",
+      "createdAt": "2022-06-14T11:13:10.612847",
+      "modifiedAt": "2022-06-14T11:13:10.612847",
+      "likeCnt": 0
+    },
+    {
+        "id": 5,
+        "title": "제목입니다5555",
+        "imageUrl": "https://bunny.jjalbot.com/2022/02/d8RfM5c0g.jpeg",
+        "category": "용품",
+        "content": "안녕하세요5555",
+        "username": "junsj119",
+        "createdAt": "2022-06-14T11:13:10.612847",
+        "modifiedAt": "2022-06-14T11:13:10.612847",
+        "likeCnt": 0
+      }
+  ],
   "signup": [
     {
       "id": 0,
