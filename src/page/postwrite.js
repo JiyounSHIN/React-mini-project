@@ -49,7 +49,7 @@ const Postwrite = () => {
         // const file_url = await getDownloadURL(upload_file.ref);
         // console.log(file_url);
         const formData = new FormData();
-        formData.append("imageUrl", image.name);
+        formData.append("imageUrl", image);
         
         dispatch(postWriteAPI({
             title: title_ref.current.value,

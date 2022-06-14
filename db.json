@@ -1,37 +1,26 @@
 {
   "postResponseDto": [
     {
-      "id": 1,
-      "title": "제목입니다1111",
-      "imageUrl": "https://bunny.jjalbot.com/2022/02/d8RfM5c0g.jpeg",
-      "category": "일상",
-      "content": "안녕하세요1111",
-      "username": "junsj119",
-      "createdAt": "2022-06-14T11:13:06.657894",
-      "modifiedAt": "2022-06-14T11:13:06.657894",
-      "likeCnt": 0
+      "title": "로고",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/hw-magazine.appspot.com/o/images%2Fcat_img.png?alt=media&token=e83fd4c5-19ae-4d18-8222-7e690f2d2188",
+      "category": "여행",
+      "content": "로고지롱",
+      "username": "",
+      "createdAt": "",
+      "modifiedAt": "",
+      "likeCnt": "",
+      "id": 1
     },
     {
-      "id": 2,
-      "title": "제목입니다2222",
-      "imageUrl": "https://bunny.jjalbot.com/2022/02/d8RfM5c0g.jpeg",
-      "category": "일상",
-      "content": "안녕하세요2222",
-      "username": "junsj119",
-      "createdAt": "2022-06-14T11:13:10.612847",
-      "modifiedAt": "2022-06-14T11:13:10.612847",
-      "likeCnt": 0
-    },
-    {
-      "id": 3,
-      "title": "제목입니다3333",
-      "imageUrl": "https://bunny.jjalbot.com/2022/02/d8RfM5c0g.jpeg",
-      "category": "일상",
-      "content": "안녕하세요3333",
-      "username": "junsj119",
-      "createdAt": "2022-06-14T11:13:10.612847",
-      "modifiedAt": "2022-06-14T11:13:10.612847",
-      "likeCnt": 0
+      "title": "냥이장난감",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/hw-magazine.appspot.com/o/images%2Fcat-323262_1920.jpg?alt=media&token=0158abc9-d7ab-4172-b783-327dfdaf1b61",
+      "category": "애견용품",
+      "content": "언제 스타일 맞추지? ",
+      "username": "",
+      "createdAt": "",
+      "modifiedAt": "",
+      "likeCnt": "",
+      "id": 3
     },
     {
       "id": 4,
@@ -45,16 +34,16 @@
       "likeCnt": 0
     },
     {
-        "id": 5,
-        "title": "제목입니다5555",
-        "imageUrl": "https://bunny.jjalbot.com/2022/02/d8RfM5c0g.jpeg",
-        "category": "용품",
-        "content": "안녕하세요5555",
-        "username": "junsj119",
-        "createdAt": "2022-06-14T11:13:10.612847",
-        "modifiedAt": "2022-06-14T11:13:10.612847",
-        "likeCnt": 0
-      }
+      "id": 5,
+      "title": "제목입니다5555",
+      "imageUrl": "https://bunny.jjalbot.com/2022/02/d8RfM5c0g.jpeg",
+      "category": "용품",
+      "content": "안녕하세요5555",
+      "username": "junsj119",
+      "createdAt": "2022-06-14T11:13:10.612847",
+      "modifiedAt": "2022-06-14T11:13:10.612847",
+      "likeCnt": 0
+    }
   ],
   "signup": [
     {
@@ -123,6 +112,12 @@
       "category": "여행",
       "content": "흐리구먼",
       "id": 3
+    },
+    {
+      "title": "ddd",
+      "imageUrl": {},
+      "content": "dddd",
+      "id": 4
     }
   ]
 }

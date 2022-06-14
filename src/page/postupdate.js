@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ".././App.css"
 import styled from "styled-components";
 import { useNavigate, useParams } from "react-router-dom";
@@ -6,15 +6,33 @@ import { useDispatch, useSelector } from "react-redux";
 import { postUpdateAPI } from "../redux/modules/postM";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { storage } from "../shared/firebase";
+import axios from "axios";
 
 const Postupdate = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-    // const params = useParams();
-    // const post_index = params.index;
-    const post_list = useSelector(state => state.postM.list);
-    console.log(post_list)
+    const params = useParams();
+    const post_index = params.index;
+    console.log(post_index);
+
+    const [post, setPost] = React.useState([
+        {
+            title: "",
+            imageUrl: "",
+            category: "",
+            content: "",
+        },
+    ]);
+
+    useEffect(() => {
+        (async () => {
+            const response = await axios.get("http://localhost:5001/postResponseDto");
+            setPost(response.data);
+        })();
+    }, [setPost]);
+
+    console.log(post[post_index]); // 해당 포스트 가져오기 // 
 
     // 카테고리 List 
     const [selected, setSelected] = React.useState();
@@ -45,22 +63,44 @@ const Postupdate = () => {
     const content_ref = React.useRef();
 
     // "자랑등록: 버튼" 게시물 서버로 업로드 
-    const handleClick = async () => {
-        // console.log(selected, title_ref.current.value, content_ref.current.value)
+    const postUpdateClick = async () => {
+        console.log(post)
         // 이미지 : 스토리지에서 URL 받아서 전송하기 
         let image = fileInput.current?.files[0];
         const upload_file = await uploadBytes(ref(storage, `images/${image.name}`), image);
         const file_url = await getDownloadURL(upload_file.ref);
         // console.log(file_url);
 
-        dispatch(postUpdateAPI({
-            title: title_ref.current.value,
-            imageUrl: file_url,
-            category: selected,
-            content: content_ref.current.value
-        }))
+        // dispatch(postUpdateAPI({
+        //     title: title_ref.current.value,
+        //     imageUrl: file_url,
+        //     category: selected,
+        //     content: content_ref.current.value
+        // }))
+        const update_post = await axios({
+            url: `http://localhost:5001/postResponseDto/${post[post_index].id}`,
+            method: "put",
+            data: {
+                title: title_ref.current.value,
+                imageUrl: file_url,
+                category: selected,
+                content: content_ref.current.value,
+                username: "",
+                createdAt: "",
+                modifiedAt: "",
+                likeCnt: ""
+            }
+        })
+        navigate('/')
     };
 
+    const postDeleteClick = async () => {
+        const delete_post = await axios({
+            method: "delete",
+            url: `http://localhost:5001/postResponseDto/${post[post_index].id}`,
+        })
+        navigate('/')
+    }
 
     return (
         <div style={{ position: "absolute", width: "100%" }}>
@@ -85,8 +125,8 @@ const Postupdate = () => {
             <Title><p style={{ marginRight: "auto", marginBottom: "5px" }}>Title : </p><input ref={title_ref} /></Title>
             <Content><p style={{ marginRight: "auto", marginBottom: "5px" }}>Content</p><textarea ref={content_ref} /></Content>
             <ButtonWrap>
-                <button onClick={handleClick}>게시글 수정하기</button>
-                <button onClick={handleClick}>게시글 삭제하기</button>
+                <button onClick={postUpdateClick}>게시글 수정하기</button>
+                <button onClick={postDeleteClick}>게시글 삭제하기</button>
             </ButtonWrap>
         </div>
     )

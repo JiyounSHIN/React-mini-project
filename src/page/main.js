@@ -61,13 +61,15 @@ export default function Main() {
     },
   ]);
 
-  const navigate = useNavigate();
+
   useEffect(() => {
     (async () => {
       const response = await axios.get("http://localhost:5001/postResponseDto");
       setAxiosPosts(response.data);
     })();
   }, [setAxiosPosts]);
+  
+  const navigate = useNavigate();
 
   return (
     <ThemeProvider theme={theme}>
