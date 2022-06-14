@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import postupdate from "./postupdate";
 import ".././App.css";
 import styled from "styled-components";
 import Stack from "@mui/material/Stack";
@@ -59,6 +61,7 @@ export default function Main() {
     },
   ]);
 
+  const navigate = useNavigate();
   useEffect(() => {
     (async () => {
       const response = await axios.get("http://localhost:5001/postResponseDto");
@@ -69,7 +72,6 @@ export default function Main() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-
       <main>
         <Box
           sx={{
@@ -105,8 +107,8 @@ export default function Main() {
         {/* post 목록 */}
         <Container sx={{ py: 4 }} maxWidth="md">
           <Grid container spacing={4}>
-            {axiosPosts.map((card) => (
-              <Grid item key={card} xs={12} sm={6} md={4}>
+            {axiosPosts.map((card, index) => (
+              <Grid item key={index} xs={12} sm={6} md={4}>
                 <Card
                   sx={{
                     height: "100%",
@@ -122,7 +124,7 @@ export default function Main() {
                       </Avatar>
                     }
                     action={
-                      <IconButton aria-label="settings">
+                      <IconButton aria-label="settings" onClick={() => navigate('/postupdate/'+index)} >
                         <MoreVertIcon />
                       </IconButton>
                     }
@@ -158,6 +160,7 @@ export default function Main() {
         color="secondary"
         aria-label="post"
         sx={{ position: "fixed", bottom: 20, right: 40 }}
+        onClick={()=> navigate('/postwrite')}
       >
         <EditIcon />
       </Fab>
