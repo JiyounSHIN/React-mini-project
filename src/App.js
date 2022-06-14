@@ -23,7 +23,7 @@ function App() {
         <Route path="/login" element={<LogIn />} />
         <Route path="/postwrite" element={<Postwrite />} />
         <Route path="/postupdate/:index" element={<Postupdate />} />
-        <Route path="/post" element={<Post />} />
+        <Route path="/post/:index" element={<Post />} />
       </Routes>
     </div>
   );

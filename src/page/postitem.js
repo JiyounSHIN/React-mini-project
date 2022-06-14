@@ -52,8 +52,13 @@ const PostItem = ({ card }) => {
           height="194"
           image={card.imageUrl.toString()}
           alt="default"
+          onClick={() => {
+            navigate("/post/"+card.id);
+          }}
         />
-        <CardContent>
+        <CardContent onClick={() => {
+            navigate("/post/"+card.id);
+          }}>
           <Typography variant="body2">{card.title}</Typography>
         </CardContent>
         <CardActions disableSpacing>

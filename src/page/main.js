@@ -39,6 +39,8 @@ export default function Main() {
   // 카테고리 목록
   const categories = ["전체", "일상", "여행", "용품"];
   const [activeCat, setActiveCat] = useState(categories);
+
+  // 해당 카테고리 게시물 목록을 보여주기 위한 객체
   const [data, setData] = useState([
     {
       id: 0,
@@ -53,7 +55,7 @@ export default function Main() {
     },
   ]);
 
-  // 게시물 목록 불러오기
+  // 전체 게시물 목록 객체
   const [axiosPosts, setAxiosPosts] = useState([
     {
       id: 0,
@@ -68,6 +70,7 @@ export default function Main() {
     },
   ]);
 
+  // axios 통해 전체 게시물 불러온 후 카테고리에 해당하는 목록 객체에도 기본 값으로 넣어줌
   useEffect(() => {
     (async () => {
       const response = await axios.get("http://localhost:5001/postResponseDto");

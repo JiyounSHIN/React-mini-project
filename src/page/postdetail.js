@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import ".././App.css";
 import Link from "@mui/material/Link";
 import Box from "@mui/material/Box";
@@ -18,6 +18,9 @@ import FavoriteBorderRoundedIcon from "@mui/icons-material/FavoriteBorderRounded
 import FavoriteRoundedIcon from "@mui/icons-material/FavoriteRounded";
 import IconButton from "@mui/material/IconButton";
 import ArrowBackIosRoundedIcon from "@mui/icons-material/ArrowBackIosRounded";
+import { useNavigate, useParams } from "react-router-dom";
+import axios from "axios";
+import { Card } from "@mui/material";
 
 function Copyright() {
   return (
@@ -38,16 +41,58 @@ function Copyright() {
 const theme = createTheme();
 
 export default function Post() {
+  const navigate = useNavigate();
+
+  const params = useParams();
+  const post_index = params.index;
+
+  // 해당 게시물 정보를 보여주기 위한 객체
+  const [data, setData] = useState([
+    {
+        title: "",
+        imageUrl: "",
+        category: "",
+        content: "",
+      },
+    ]);
+  
+    // 전체 게시물 목록 객체
+  const [post, setPost] = useState([
+    {
+      title: "",
+      imageUrl: "",
+      category: "",
+      content: "",
+    },
+  ]);
+
+  useEffect(() => {
+    (async () => {
+      const response = await axios.get("http://localhost:5001/postResponseDto");
+      setPost(response.data);
+      setData(response.data[post_index - 1]);
+    })();
+  }, [setPost]);
+
+//   console.log(post);
+//   const card = post[post_index - 1];
+  console.log("^^^^^^^^^^^^^^^^^^^^^^^");
+  console.log(data);
+
   return (
     <ThemeProvider theme={theme}>
       <Container maxWidth="sm">
-        {/* 카테고리 */}
+        {/* 카테고리 목록, 이전 페이지로 이동 및 좋아요 기능*/}
         <Grid container alignItems="center" sx={{ my: 4 }}>
+          {/* 이전 페이지로 이동 */}
           <Grid item>
-            <IconButton aria-label="add to favorites">
+            <IconButton aria-label="move to category" onClick={() => {
+                navigate(-1);
+              }}>
               <ArrowBackIosRoundedIcon />
             </IconButton>
           </Grid>
+          {/* 해당 카테고리 목록 표시 */}
           <Grid item xs>
             <Typography
               gutterBottom
@@ -56,9 +101,11 @@ export default function Post() {
               align="left"
               sx={{ my: "auto" }}
             >
-              카테고리
+              {data.category}
+              {/* 카테고리 */}
             </Typography>
           </Grid>
+          {/* 좋아요 버튼 */}
           <Grid item>
             <IconButton aria-label="add to favorites">
               <FavoriteRoundedIcon />
@@ -66,14 +113,10 @@ export default function Post() {
           </Grid>
         </Grid>
 
-        {/* "#cfe8fc" */}
+        {/* 상세 페이지 내용 */}
         <Box sx={{ bgcolor: "#fff", height: "100%" }}>
           {/* 이미지 */}
-          <img
-            src="https://bunny.jjalbot.com/2022/02/d8RfM5c0g.jpeg"
-            alt="img"
-            width="100%"
-          />
+          <img src={data.imageUrl} alt="img" width="100%" />
 
           {/* 제목, 내용, 댓글 */}
           <Box sx={{ my: 3 }}>
@@ -85,7 +128,8 @@ export default function Post() {
                   component="div"
                   align="left"
                 >
-                  Title
+                  {data.title}
+                  {/* Title */}
                 </Typography>
               </Grid>
               <Grid item>
@@ -96,13 +140,13 @@ export default function Post() {
                   component="div"
                   align="right"
                 >
-                  nickname
+                  username
                 </Typography>
               </Grid>
             </Grid>
             <Typography variant="body1" align="left">
-              Pinstriped cornflower blue cotton blouse takes you on a walk to
-              the park or just down the hall.
+              {data.content}
+              {/* content */}
             </Typography>
           </Box>
 
@@ -124,7 +168,6 @@ export default function Post() {
                 fullWidth
                 color="secondary"
                 id="comment"
-                autoFocus
               />
             </Grid>
             <Grid item xs={12} sm={2}>
