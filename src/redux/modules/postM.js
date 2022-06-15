@@ -30,13 +30,13 @@ export function postdelete(post_index) {
 export const postWriteAPI = (post) => {
     console.log(post)
     return async function (dispatch) {
-        const _postWrite = await axios.post("http://13.125.247.60/api/post", {
+        const _postWrite = await axios.post("/api/post", {
             title: post.title,
             imageUrl: post.imageUrl,
             category: post.category,
             content: post.content
         }).then(response => {
-            console.log(response);
+            console.log(response.data);
         }).catch(error => {
             console.log(error);
         }); dispatch(postWrite(post))
@@ -52,6 +52,7 @@ export const postUpdateAPI = (post_id) => {
         dispatch(postupdate(get_post))
     }
 }
+
 export const postDeleteAPI = (post_id) => {
     return null;
 }

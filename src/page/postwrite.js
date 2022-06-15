@@ -6,6 +6,8 @@ import { useDispatch } from "react-redux";
 import { postWriteAPI } from "../redux/modules/postM";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { storage } from "../shared/firebase";
+import { getElementError } from "@testing-library/react";
+import axios from "axios";
 
 const Postwrite = () => {
     const navigate = useNavigate();
@@ -22,8 +24,8 @@ const Postwrite = () => {
     const fileInput = React.useRef("");
     const previewimage = React.useRef("");
     const onLoadFile = (e) => {
-        // console.log(e.target.files[0]);
-        // console.log(fileInput.current.files[0]);
+        console.log(e.target.files[0]);
+        console.log(fileInput.current.files[0]);
         const file = fileInput.current.files[0];
         if (file) {
             const reader = new FileReader();
@@ -43,20 +45,55 @@ const Postwrite = () => {
     const handleClick = async () => {
         // console.log(selected, title_ref.current.value, content_ref.current.value)
         // 이미지 : 스토리지에서 URL 받아서 전송하기 
-        let image = fileInput.current?.files[0];
-        console.log(image.name);
+        console.log(fileInput);
+        console.log(fileInput.current);
+        console.log(fileInput.current.files[0].name);
+        let a = typeof(fileInput.current.files[0].name)
+        console.log(a)
+
+        let image = fileInput.current.files[0];
+        console.log(image);
+
+        let formData
+
+        // console.log(image.name);
         // const upload_file = await uploadBytes(ref(storage, `images/${image.name}`), image);
         // const file_url = await getDownloadURL(upload_file.ref);
         // console.log(file_url);
-        const formData = new FormData();
-        formData.append("imageUrl", image);
-        
-        dispatch(postWriteAPI({
-            title: title_ref.current.value,
-            imageUrl: formData,
-            category: selected,
-            content: content_ref.current.value
-        }))
+        // const formData = new FormData();
+        // // let image - getElementById("image")
+        // formData.append("imageUrl", fileInput.current.files[0].name);
+        // for (let key of formData.keys()) {
+        //     console.log(key);
+        // }
+        // for (let value of formData.values()) {
+        //     console.log(value);
+        // }
+         axios({
+            method: "post",
+            url: "/api/post",
+            data: {
+                title: title_ref.current.value,
+                formData,
+                category: selected,
+                content: content_ref.current.value,
+            },
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            }
+        }).then(response => { 
+            console.log(response);
+        }).catch(error => {
+            console.log(error);
+            alert('에러가 발생함');
+        })
+
+        // dispatch(postWriteAPI({
+        //         title: title_ref.current.value,
+        //         imageUrl: formData,
+        //         category: selected,
+        //         content: content_ref.current.value
+        //     }))
     };
 
 
@@ -74,8 +111,8 @@ const Postwrite = () => {
             <Line />
             <Image>
                 <PicSelect>
-                    <label style={{ border: "3px solid #602d38", padding: "7px", borderRadius: "10px" }} for="ex_filename"> 사진선택</label>
-                    <input value="이미지파일" disabled="disabled" style={{ border: "3px solid #eee", padding: "7px", marginLeft: "5px", width: "30%" }} />
+                    <label style={{ border: "3px solid #602d38", padding: "7px", borderRadius: "10px" }} id="image" for="ex_filename"> 사진선택</label>
+                    <input value="이미지파일" id="image" disabled="disabled" style={{ border: "3px solid #eee", padding: "7px", marginLeft: "5px", width: "30%" }} />
                     <input type="file" id="ex_filename" ref={fileInput} onChange={onLoadFile} style={{ visibility: "hidden" }} />
                 </PicSelect>
                 <Preview ref={previewimage}></Preview>

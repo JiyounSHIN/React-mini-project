@@ -12,9 +12,18 @@ import axios from "axios";
 const LogIn = () => {
     const name_ref = React.useRef("");
     const pw_ref = React.useRef("");
-
+    const [idchk, setIdchk] = React.useState("");
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
+    // React.useEffect(() => {
+    //     (async () => {
+    //         const response = await axios.get("/user/signup");
+    //         setIdchk(response.data);
+    //         console.log(idchk);
+    //     })();
+    // }, [setIdchk]);
+
 
     const login = () => {
         console.log(name_ref.current.value, pw_ref.current.value)

@@ -7,6 +7,7 @@ import { postUpdateAPI } from "../redux/modules/postM";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { storage } from "../shared/firebase";
 import axios from "axios";
+import { formControlUnstyledClasses } from "@mui/base";
 
 const Postupdate = () => {
     const navigate = useNavigate();
@@ -67,8 +68,12 @@ const Postupdate = () => {
         console.log(post)
         // 이미지 : 스토리지에서 URL 받아서 전송하기 
         let image = fileInput.current?.files[0];
-        const upload_file = await uploadBytes(ref(storage, `images/${image.name}`), image);
-        const file_url = await getDownloadURL(upload_file.ref);
+        console.log(image);
+        console.log(image.name);
+        const formData = new FormData();
+        formData.append("imageUrl", image);
+        // const upload_file = await uploadBytes(ref(storage, `images/${image.name}`), image);
+        // const file_url = await getDownloadURL(upload_file.ref);
         // console.log(file_url);
 
         // dispatch(postUpdateAPI({
@@ -82,7 +87,7 @@ const Postupdate = () => {
             method: "put",
             data: {
                 title: title_ref.current.value,
-                imageUrl: file_url,
+                imageUrl: formData,
                 category: selected,
                 content: content_ref.current.value,
                 username: "",
@@ -91,6 +96,8 @@ const Postupdate = () => {
                 likeCnt: ""
             }
         })
+
+
         navigate('/')
     };
 

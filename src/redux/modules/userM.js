@@ -38,12 +38,12 @@ export function login(user) {
 export const signupFB = (user) => {
     // console.log(username, nickname, password)
     return async function (dispatch) {
-        await axios.post("http://13.125.247.60/user/signup", {
+        await axios.post("/user/signup", {
             username: user.username,
             nickname: user.nickname,
             password: user.password,
         }).then(response => {
-            console.log(response);
+            console.log(response.data);
         }).catch(error => {
             console.log(error);
         })
@@ -53,16 +53,17 @@ export const signupFB = (user) => {
 
 export const loginFB = (user) => {
     return async function (dispatch) {
-        await axios.post("http://13.125.247.60/user/login", {
+        await axios.post("/user/login", {
             username: user.username,
             password: user.password,
             // 일치여부, 로그인 인증값도 받아와야 함 // 
-        }).then(response => {
+        }).then(response => { 
             console.log(response);
+            dispatch(login(user));
         }).catch(error => {
             console.log(error);
+            alert('에러가 발생함');
         })
-        dispatch(login(user));
     }
 }
 
@@ -84,9 +85,9 @@ export const loginFB = (user) => {
 export default function reducer(state = initialState, action = {}) {
     switch (action.type) {
         case "user/SIGNUP": {
-            const new_user_list = [...state.list];
+            const new_user_list = [...state.list, action.user];
             console.log(new_user_list);
-            return { list: [...state.list] }
+            return { list: [...state.list, action.user] }
         }
         case "user/LOGIN": {
             const login_user = [action.user]
