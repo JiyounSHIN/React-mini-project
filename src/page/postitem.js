@@ -10,7 +10,7 @@ import Typography from "@mui/material/Typography";
 import Avatar from "@mui/material/Avatar";
 import FavoriteBorderRoundedIcon from "@mui/icons-material/FavoriteBorderRounded";
 import FavoriteRoundedIcon from "@mui/icons-material/FavoriteRounded";
-import ShareIcon from "@mui/icons-material/Share";
+import ChatRoundedIcon from '@mui/icons-material/ChatRounded';
 import IconButton from "@mui/material/IconButton";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { useNavigate } from "react-router-dom";
@@ -52,16 +52,23 @@ const PostItem = ({ card }) => {
           height="194"
           image={card.imageUrl.toString()}
           alt="default"
+          onClick={() => {
+            navigate("/post/"+card.id);
+          }}
         />
-        <CardContent>
+        <CardContent onClick={() => {
+            navigate("/post/"+card.id);
+          }}>
           <Typography variant="body2">{card.title}</Typography>
         </CardContent>
         <CardActions disableSpacing>
           <IconButton aria-label="add to favorites">
             <FavoriteRoundedIcon />
           </IconButton>
-          <IconButton aria-label="share">
-            <ShareIcon />
+          <IconButton aria-label="share" onClick={() => {
+            navigate("/post/"+card.id);
+          }}>
+            <ChatRoundedIcon />
           </IconButton>
         </CardActions>
       </Card>
