@@ -1,0 +1,142 @@
+{
+  "postResponseDto": [
+    {
+      "title": "멍멍",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/hw-magazine.appspot.com/o/images%2Fpets-3715733_1920.jpg?alt=media&token=da8b1615-e228-446f-aba1-1719a42f1ff6",
+      "category": "일상",
+      "content": "멍멍",
+      "username": "",
+      "createdAt": "",
+      "modifiedAt": "",
+      "likeCnt": "",
+      "id": 1
+    },
+    {
+      "id": 2,
+      "title": "제목입니다2222",
+      "imageUrl": "https://bunny.jjalbot.com/2022/02/d8RfM5c0g.jpeg",
+      "category": "일상",
+      "content": "안녕하세요2222",
+      "username": "hehehih",
+      "createdAt": "2022-06-14T11:13:10.612847",
+      "modifiedAt": "2022-06-14T11:13:10.612847",
+      "likeCnt": 0
+    },
+    {
+      "title": "스타벅스 알바다녀왔어용",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/hw-magazine.appspot.com/o/images%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202022-06-14%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%209.05.42.png?alt=media&token=09f3ac37-b3f6-41df-bc02-861f8daad24b",
+      "category": "일상",
+      "content": "토이 귀여워",
+      "username": "toy",
+      "createdAt": "",
+      "modifiedAt": "",
+      "likeCnt": "",
+      "id": 3
+    },
+    {
+      "id": 4,
+      "title": "제목입니다4444",
+      "imageUrl": "https://bunny.jjalbot.com/2022/02/d8RfM5c0g.jpeg",
+      "category": "여행",
+      "content": "안녕하세요44444",
+      "username": "junsj119",
+      "createdAt": "2022-06-14T11:13:10.612847",
+      "modifiedAt": "2022-06-14T11:13:10.612847",
+      "likeCnt": 0
+    },
+    {
+      "id": 5,
+      "title": "제목입니다5555",
+      "imageUrl": "https://bunny.jjalbot.com/2022/02/d8RfM5c0g.jpeg",
+      "category": "용품",
+      "content": "안녕하세요5555",
+      "username": "junsj119",
+      "createdAt": "2022-06-14T11:13:10.612847",
+      "modifiedAt": "2022-06-14T11:13:10.612847",
+      "likeCnt": 0
+    }
+  ],
+  "signup": [
+    {
+      "id": 0,
+      "username": "신지연",
+      "nickname": "tlswldus",
+      "password": "1234qwer",
+      "passwordCheck": "1234qwer"
+    },
+    {
+      "username": {
+        "username": "testtest",
+        "nickname": "testtest",
+        "password": "testtesttesttest",
+        "passwordCheck": "testtesttesttest"
+      },
+      "id": 1
+    }
+  ],
+  "login": [
+    {
+      "id": 0,
+      "username": "신지연",
+      "password": "1234qwer"
+    },
+    {
+      "username": {
+        "username": "",
+        "password": ""
+      },
+      "id": 1
+    },
+    {
+      "username": {
+        "username": "",
+        "password": ""
+      },
+      "id": 2
+    },
+    {
+      "username": {
+        "username": "",
+        "password": ""
+      },
+      "id": 3
+    },
+    {
+      "username": {
+        "username": "",
+        "password": ""
+      },
+      "id": 4
+    },
+    {
+      "username": {
+        "username": "",
+        "password": ""
+      },
+      "id": 5
+    }
+  ],
+  "post": [
+    {
+      "id": 0,
+      "title": "여행가고 싶다",
+      "imageUrl": " ",
+      "category": "일상",
+      "content": "강아지랑 놀러왔어요"
+    },
+    {
+      "title": "어렵다",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/hw-magazine.appspot.com/o/images%2Fsampleimages.jpg?alt=media&token=d1cc249a-0d0b-4920-9be2-fd7a57897485",
+      "category": "여행",
+      "content": "커뮤니티와 어울리지 않는 이미지이군. ",
+      "id": 1
+    },
+    {
+      "title": "ㅇㅇㅇ",
+      "imageUrl": {},
+      "category": "여행",
+      "content": "ㅇㅇㅇㅇㅇ",
+      "id": 2
+    }
+  ]
+}

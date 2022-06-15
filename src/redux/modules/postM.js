@@ -30,13 +30,15 @@ export function postdelete(post_index) {
 export const postWriteAPI = (post) => {
     console.log(post)
     return async function (dispatch) {
-        const _postWrite = await axios.post("/api/post", {
+        const _postWrite = await axios.post("http://localhost:5001/post", {
             title: post.title,
             imageUrl: post.imageUrl,
             category: post.category,
             content: post.content
         }).then(response => {
             console.log(response);
+        }).catch(error => {
+            console.log(error);
         }); dispatch(postWrite(post))
     }
 }

@@ -35,44 +35,46 @@ export function signout(user) {
 }
 
 
-export const signupFB = (username, nickname, password) => {
-    console.log(username, nickname, password)
+export const signupFB = (user) => {
+    // console.log(username, nickname, password)
     return async function (dispatch) {
-        const _signup =  await axios.post("/user/signup", {
-            username: username,
-            nickname: nickname,
-            password: password,
+        await axios.post("http://13.125.247.60/user/signup", {
+            username: user.username,
+            nickname: user.nickname,
+            password: user.password,
         }).then(response => {
             console.log(response);
         }).catch(error => {
             console.log(error);
         })
-        dispatch(signup(username, nickname, password));
+        dispatch(signup(user));
     };
 }
 
-export const loginFB = (username, password) => {
+export const loginFB = (user) => {
     return async function (dispatch) {
-        const _login = await axios.post("/user/login", {
-            username: username,
-            password: password,
+        await axios.post("http://13.125.247.60/user/login", {
+            username: user.username,
+            password: user.password,
             // 일치여부, 로그인 인증값도 받아와야 함 // 
         }).then(response => {
             console.log(response);
-        }); 
-        dispatch(login(username, password));
+        }).catch(error => {
+            console.log(error);
+        })
+        dispatch(login(user));
     }
 }
 
 export const idcheckFB = (username) => {
     return async function (dispatch) {
-        axios({method : "get", headers : {}});
+        axios({ method: "get", headers: {} });
         // 토큰을 받아서 웹 저장소에 저장 
     }
 }
 
-export const signoutFB = (user_id) =>  {
-    return  async function (dispatch) {
+export const signoutFB = (user_id) => {
+    return async function (dispatch) {
         //토큰 삭제 
     }
 }

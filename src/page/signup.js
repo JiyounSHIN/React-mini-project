@@ -48,7 +48,7 @@ const SignUp = () => {
                 nickname: nick_ref.current.value,
                 password: pw_ref.current.value
             }))
-            navigate("/")
+            navigate("/login")
         } else {
             window.alert("빈 값이 있습니다.")
             navigate("/signup")

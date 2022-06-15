@@ -18,7 +18,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="/postitem" element={<Posts />} />
+        {/* <Route path="/postitem" element={<Posts />} /> */}
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<LogIn />} />
         <Route path="/postwrite" element={<Postwrite />} />
