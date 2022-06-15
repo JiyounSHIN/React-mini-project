@@ -38,7 +38,7 @@ export function signout(user) {
 export const signupFB = (username, nickname, password, passwordCheck) => {
     // console.log(username, nickname, password, passwordCheck)
     return async function (dispatch) {
-        const _signup =  await axios.post("http://localhost:5001/signup", {
+        const _signup =  await axios.post("http://13.125.247.60/user/signup", {
             username: username,
             nickname: nickname,
             password: password,
@@ -52,7 +52,7 @@ export const signupFB = (username, nickname, password, passwordCheck) => {
 
 export const loginFB = (username, password) => {
     return async function (dispatch) {
-        const _login = await axios.post("http://localhost:5001/login", {
+        const _login = await axios.post("http://13.125.247.60/user/login", {
             username: username,
             password: password,
             // 일치여부, 로그인 인증값도 받아와야 함 // 
