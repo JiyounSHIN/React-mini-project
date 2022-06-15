@@ -6,22 +6,23 @@ import catimg from '.././elements/images/cat_img.png';
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { loginFB } from "../redux/modules/userM";
+import axios from "axios";
 
 
 const LogIn = () => {
     const name_ref = React.useRef("");
     const pw_ref = React.useRef("");
-    console.log(name_ref.current.value, pw_ref.current.value)
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
     const login = () => {
+        console.log(name_ref.current.value, pw_ref.current.value)
         dispatch(loginFB({
             username: name_ref.current.value,
             password: pw_ref.current.value,
         }))
-        navigate("/")
+        // navigate("/")
     }
     return (
         <div style={{ fontSize: "22px" }}>
@@ -37,7 +38,7 @@ const LogIn = () => {
                     <Input><p>username :</p>
                         <input type="text" placeholder="user ID 입력하세요" ref={name_ref} /></Input>
                     <Input><p>password : </p>
-                        <input type="password" placeholder="비밀번호 6~12자 입력하세요" ref={pw_ref} />
+                        <input type="text" placeholder="비밀번호 6~12자 입력하세요" ref={pw_ref} />
                         <Link onClick={() => { navigate("/signup") }}>아직 계정이 없으신가요?(회원가입)</Link></Input>
                 </div>
                 <ButtonWrap>
