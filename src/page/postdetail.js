@@ -68,7 +68,7 @@ export default function Post() {
 
   useEffect(() => {
     (async () => {
-      const response = await axios.get("http://localhost:5001/postResponseDto");
+      const response = await axios.get("/api/post/{postId}");
       setPost(response.data);
       setData(response.data[post_index - 1]);
     })();

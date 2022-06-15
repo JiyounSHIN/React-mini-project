@@ -46,8 +46,7 @@ const SignUp = () => {
             dispatch(signupFB({
                 username: name_ref.current.value,
                 nickname: nick_ref.current.value,
-                password: pw_ref.current.value,
-                passwordCheck: chk_ref.current.value
+                password: pw_ref.current.value
             }))
             navigate("/")
         } else {

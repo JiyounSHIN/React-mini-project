@@ -35,24 +35,25 @@ export function signout(user) {
 }
 
 
-export const signupFB = (username, nickname, password, passwordCheck) => {
-    // console.log(username, nickname, password, passwordCheck)
+export const signupFB = (username, nickname, password) => {
+    console.log(username, nickname, password)
     return async function (dispatch) {
-        const _signup =  await axios.post("http://13.125.247.60/user/signup", {
+        const _signup =  await axios.post("/user/signup", {
             username: username,
             nickname: nickname,
             password: password,
-            passwordCheck: passwordCheck,
         }).then(response => {
             console.log(response);
-        });
-        dispatch(signup(username, nickname, password, passwordCheck));
+        }).catch(error => {
+            console.log(error);
+        })
+        dispatch(signup(username, nickname, password));
     };
 }
 
 export const loginFB = (username, password) => {
     return async function (dispatch) {
-        const _login = await axios.post("http://13.125.247.60/user/login", {
+        const _login = await axios.post("/user/login", {
             username: username,
             password: password,
             // 일치여부, 로그인 인증값도 받아와야 함 // 

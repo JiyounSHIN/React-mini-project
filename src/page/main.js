@@ -73,7 +73,7 @@ export default function Main() {
   // axios 통해 전체 게시물 불러온 후 카테고리에 해당하는 목록 객체에도 기본 값으로 넣어줌
   useEffect(() => {
     (async () => {
-      const response = await axios.get("http://localhost:5001/postResponseDto");
+      const response = await axios.get("/api/posts");
       setAxiosPosts(response.data);
       setData(response.data);
     })();

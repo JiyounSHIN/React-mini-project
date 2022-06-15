@@ -27,7 +27,7 @@ const Postupdate = () => {
 
     useEffect(() => {
         (async () => {
-            const response = await axios.get("http://localhost:5001/postResponseDto");
+            const response = await axios.get("/api/posts");
             setPost(response.data);
         })();
     }, [setPost]);
@@ -78,7 +78,7 @@ const Postupdate = () => {
         //     content: content_ref.current.value
         // }))
         const update_post = await axios({
-            url: `http://localhost:5001/postResponseDto/${post[post_index].id}`,
+            url: `/api/post/${post[post_index].id}`,
             method: "put",
             data: {
                 title: title_ref.current.value,
@@ -97,7 +97,7 @@ const Postupdate = () => {
     const postDeleteClick = async () => {
         const delete_post = await axios({
             method: "delete",
-            url: `http://localhost:5001/postResponseDto/${post[post_index].id}`,
+            url: `/api/post/${post[post_index].id}`,
         })
         navigate('/')
     }
