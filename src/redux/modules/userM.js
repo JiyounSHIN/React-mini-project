@@ -27,12 +27,12 @@ export function signup(user) {
 export function login(user) {
     return { type: LOGIN, user }
 }
-export function idcheck(user) {
-    return { type: IDCHK, user }
-}
-export function signout(user) {
-    return { type: SIGNOUT, user }
-}
+// export function idcheck(user) {
+//     return { type: IDCHK, user }
+// }
+// export function signout(user) {
+//     return { type: SIGNOUT, user }
+// }
 
 
 export const signupFB = (user) => {
@@ -66,27 +66,27 @@ export const loginFB = (user) => {
     }
 }
 
-export const idcheckFB = (username) => {
-    return async function (dispatch) {
-        axios({ method: "get", headers: {} });
-        // 토큰을 받아서 웹 저장소에 저장 
-    }
-}
+// export const idcheckFB = (username) => {
+//     return async function (dispatch) {
+//         axios({ method: "get", headers: {} });
+//         // 토큰을 받아서 웹 저장소에 저장 
+//     }
+// }
 
-export const signoutFB = (user_id) => {
-    return async function (dispatch) {
-        //토큰 삭제 
-    }
-}
+// export const signoutFB = (user_id) => {
+//     return async function (dispatch) {
+//         //토큰 삭제 
+//     }
+// }
 
 
 // 리듀서 
 export default function reducer(state = initialState, action = {}) {
     switch (action.type) {
         case "user/SIGNUP": {
-            const new_user_list = [...state.list, action.user];
+            const new_user_list = [...state.list];
             console.log(new_user_list);
-            return { list: [...state.list, action.user] }
+            return { list: [...state.list] }
         }
         case "user/LOGIN": {
             const login_user = [action.user]

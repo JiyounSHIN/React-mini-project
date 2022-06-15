@@ -22,7 +22,7 @@ const LogIn = () => {
             username: name_ref.current.value,
             password: pw_ref.current.value,
         }))
-        // navigate("/")
+        // navigate("/postwrite")
     }
     return (
         <div style={{ fontSize: "22px" }}>
