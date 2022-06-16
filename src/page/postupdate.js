@@ -120,7 +120,7 @@ const Postupdate = () => {
             여행
           </option>
           <option key="용품" value="용품">
-            애견용품
+            용품
           </option>
         </Select>
       </Dropst>
@@ -160,11 +160,11 @@ const Postupdate = () => {
       </Image>
       <Title>
         <p style={{ marginRight: "auto", marginBottom: "5px" }}>Title : </p>
-        <input ref={title_ref} />
+        <input ref={title_ref} placeholder={data.title}/>
       </Title>
       <Content>
         <p style={{ marginRight: "auto", marginBottom: "5px" }}>Content</p>
-        <textarea ref={content_ref} />
+        <textarea ref={content_ref} placeholder={data.content}/>
       </Content>
       <ButtonWrap>
         <button onClick={postUpdateClick}>게시글 수정하기</button>

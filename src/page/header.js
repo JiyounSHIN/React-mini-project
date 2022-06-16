@@ -3,7 +3,8 @@ import React from "react";
 import styled from "styled-components";
 import '.././App.css';
 import { Link, useLocation } from "react-router-dom";
-import catlogo from '.././elements/images/cat_img.png';
+import catlogo from '.././elements/images/Cat-Pink-icon.png';
+import catlogo2 from '.././elements/images/Cat-Black-White-icon.png';
 
 const Header = () => {
     const location = useLocation(); //state를 변환시켜주는 파라미터
@@ -15,7 +16,10 @@ const Header = () => {
             <Top>
                 <TopLeft>
                     <Link to='/'>
-                        <img src={catlogo} width="auto" height="75px" />
+                        <img src={catlogo} width="auto" height="90px" />
+                        <img src={catlogo2} width="auto" height="90px" />
+                        <img src={catlogo} width="auto" height="90px" />
+                        <img src={catlogo2} width="auto" height="90px" />
                     </Link>
                 </TopLeft>
                 <TopRight>
@@ -32,17 +36,20 @@ const Header = () => {
 
 const Top = styled.header`
     position : relative;
-    height : 70px;
+    height : 80px;
+    // background-color: purple;
 `;
 const TopLeft = styled.div`
     position : absolute;
     top : 13px;
     left : 20px;
+    // background-color: purple;
 `;
 const TopRight = styled.div`
     position : absolute;
-    top : 20px;
+    top : 15px;
     right : 20px;  
+    // background-color: purple;
 `;
 const Button = styled.button`
     margin-top : 25px;
@@ -63,10 +70,12 @@ const Button = styled.button`
     }
 `;
 const Line = styled.hr`
-    margin : 25px 0px;
-    height: 12px;
+    // margin-top : -0.1px;
+    margin : 25px 0;
+    height: 20px;
     border: 0;
-    box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.2);
+    // background-color: purple;
 `;
 
 
