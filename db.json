@@ -74,6 +74,16 @@
       "createdAt": "2022-06-16T09:14:59.272Z",
       "likeCnt": 0,
       "id": 8
+    },
+    {
+      "title": "시원한산책",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/hw-magazine.appspot.com/o/images%2Fcorgi-4415649_1920.jpg?alt=media&token=197a0520-c968-45d8-95e0-2024a6913390",
+      "category": "여행",
+      "content": "좋다",
+      "username": "username",
+      "createdAt": "2022-06-16T12:16:44.996Z",
+      "likeCnt": 0,
+      "id": 9
     }
   ],
   "signup": [
