@@ -28,13 +28,17 @@ export function postdelete(post_index) {
 
 
 export const postWriteAPI = (post) => {
+    const date = new Date();
     console.log(post)
     return async function (dispatch) {
-        const _postWrite = await axios.post("/api/post", {
+        const _postWrite = await axios.post("http://localhost:5001/postResponseDto", {
             title: post.title,
-            imageUrl: post.imageUrl,
+            imageUrl: "https://bunny.jjalbot.com/2022/02/d8RfM5c0g.jpeg",
             category: post.category,
-            content: post.content
+            content: post.content,
+            username: "username",
+            createdAt: date,
+            likeCnt: 0
         }).then(response => {
             console.log(response.data);
         }).catch(error => {

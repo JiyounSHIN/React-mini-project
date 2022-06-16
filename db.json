@@ -12,15 +12,15 @@
       "id": 1
     },
     {
-      "id": 2,
-      "title": "제목입니다2222",
-      "imageUrl": "https://bunny.jjalbot.com/2022/02/d8RfM5c0g.jpeg",
+      "title": "오늘 너무 힘든 하루 ㅠ_ㅠ",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/hw-magazine.appspot.com/o/images%2Fcat1.webp?alt=media&token=f23e7805-446c-4b2c-9cee-c81ab6f513c8",
       "category": "일상",
-      "content": "안녕하세요2222",
-      "username": "hehehih",
-      "createdAt": "2022-06-14T11:13:10.612847",
-      "modifiedAt": "2022-06-14T11:13:10.612847",
-      "likeCnt": 0
+      "content": "냐옹냐옹 ",
+      "username": "user2",
+      "createdAt": "2022-06-16T08:24:17.024Z",
+      "modifiedAt": "",
+      "likeCnt": 0,
+      "id": 2
     },
     {
       "title": "저 스타벅스에서 일해용!!!",
@@ -54,6 +54,27 @@
       "createdAt": "2022-06-14T11:13:10.612847",
       "modifiedAt": "2022-06-14T11:13:10.612847",
       "likeCnt": 0
+    },
+    {
+      "title": "여행 가고 싶어요",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/hw-magazine.appspot.com/o/images%2Fcat2.jpeg?alt=media&token=20567dd0-4bdd-4b7d-97dd-a2aac08ab485",
+      "category": "여행",
+      "content": "냐옹",
+      "username": "user6",
+      "createdAt": "2022-06-16T08:49:57.071Z",
+      "modifiedAt": "",
+      "likeCnt": 0,
+      "id": 6
+    },
+    {
+      "title": "안녕하세요",
+      "imageUrl": "https://bunny.jjalbot.com/2022/02/d8RfM5c0g.jpeg",
+      "category": "여행",
+      "content": "*_*",
+      "username": "username",
+      "createdAt": "2022-06-16T08:49:45.307Z",
+      "likeCnt": 0,
+      "id": 7
     }
   ],
   "signup": [
@@ -174,6 +195,13 @@
       "comment": "지금 갈게요!!!!!",
       "createdAt": "2022-06-16T07:15:10.344Z",
       "id": 8
+    },
+    {
+      "postId": "6",
+      "username": "username",
+      "comment": "사진 잘나왔네요",
+      "createdAt": "2022-06-16T08:50:30.685Z",
+      "id": 9
     }
   ]
 }

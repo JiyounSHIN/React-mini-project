@@ -108,7 +108,7 @@ const Postupdate = () => {
   return (
     <div style={{ position: "absolute", width: "100%" }}>
       <Nickst>
-        <p>nickname 님!</p> 수정(삭제) PAGE입니다
+        <p>게시글 수정하기</p> 수정(삭제) PAGE입니다
       </Nickst>
       <Dropst>
         <label>카테고리 :</label>
