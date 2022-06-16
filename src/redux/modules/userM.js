@@ -58,7 +58,7 @@ export const loginFB = (user) => {
             password: user.password,
             // 일치여부, 로그인 인증값도 받아와야 함 // 
         }).then(response => { 
-            console.log(response);
+            console.log(response.data);
             dispatch(login(user));
         }).catch(error => {
             console.log(error);

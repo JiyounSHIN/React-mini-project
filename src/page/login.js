@@ -16,13 +16,17 @@ const LogIn = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    // React.useEffect(() => {
-    //     (async () => {
-    //         const response = await axios.get("/user/signup");
-    //         setIdchk(response.data);
-    //         console.log(idchk);
-    //     })();
-    // }, [setIdchk]);
+    React.useEffect(async () => {
+        await axios.get('/user/idCheck/').then(res => {
+            setIdchk((res) => {
+                console.log(res);
+            }
+        )}).catch(err => {
+            console.log("에러났어");
+        });
+    }, [])
+
+
 
 
     const login = () => {

@@ -36,6 +36,11 @@ const Postwrite = () => {
             }; //console.log(previewimage);
         }
     }
+    let formData = new FormData();
+    let image2 = document.getElementsByClassName("image")
+    console.log(image2[0])
+    
+  
 
     // 작성란 data
     const title_ref = React.useRef();
@@ -45,39 +50,35 @@ const Postwrite = () => {
     const handleClick = async () => {
         // console.log(selected, title_ref.current.value, content_ref.current.value)
         // 이미지 : 스토리지에서 URL 받아서 전송하기 
-        console.log(fileInput);
-        console.log(fileInput.current);
-        console.log(fileInput.current.files[0].name);
-        let a = typeof(fileInput.current.files[0].name)
-        console.log(a)
+        // console.log(fileInput);
+        // console.log(fileInput.current);
+        // console.log(fileInput.current.files[0].name)
+        // let a = typeof(fileInput.current.files[0].name)
+        // console.log(a)
 
         let image = fileInput.current.files[0];
         console.log(image);
+        console.log(image.name);
 
-        let formData
-
-        // console.log(image.name);
         // const upload_file = await uploadBytes(ref(storage, `images/${image.name}`), image);
         // const file_url = await getDownloadURL(upload_file.ref);
         // console.log(file_url);
-        // const formData = new FormData();
-        // // let image - getElementById("image")
-        // formData.append("imageUrl", fileInput.current.files[0].name);
-        // for (let key of formData.keys()) {
-        //     console.log(key);
-        // }
-        // for (let value of formData.values()) {
-        //     console.log(value);
-        // }
-         axios({
+        let formData = new FormData();
+        formData.append("imageUrl", fileInput.current.files[0]);
+        formData.append("title", title_ref.current.value);
+        formData.append("category", selected);
+        formData.append("content", content_ref.current.value);
+        console.log(formData.getAll("imageUrl"))
+        for (let key of formData.keys()) {
+            console.log(key);
+        }
+        for (let value of formData.values()) {
+            console.log(value);
+        }
+         await axios({
             method: "post",
-            url: "/api/post",
-            data: {
-                title: title_ref.current.value,
-                formData,
-                category: selected,
-                content: content_ref.current.value,
-            },
+            url: "http://13.125.247.60/api/post",
+            data: formData,
             headers: {
                 'Content-Type': 'multipart/form-data',
             }
@@ -90,7 +91,7 @@ const Postwrite = () => {
 
         // dispatch(postWriteAPI({
         //         title: title_ref.current.value,
-        //         imageUrl: formData,
+        //         formData,
         //         category: selected,
         //         content: content_ref.current.value
         //     }))
@@ -111,9 +112,9 @@ const Postwrite = () => {
             <Line />
             <Image>
                 <PicSelect>
-                    <label style={{ border: "3px solid #602d38", padding: "7px", borderRadius: "10px" }} id="image" for="ex_filename"> 사진선택</label>
+                    <label style={{ border: "3px solid #602d38", padding: "7px", borderRadius: "10px" }} for="ex_filename"> 사진선택</label>
                     <input value="이미지파일" id="image" disabled="disabled" style={{ border: "3px solid #eee", padding: "7px", marginLeft: "5px", width: "30%" }} />
-                    <input type="file" id="ex_filename" ref={fileInput} onChange={onLoadFile} style={{ visibility: "hidden" }} />
+                    <input type="file" className="image" id="ex_filename" ref={fileInput} onChange={onLoadFile} style={{ visibility: "hidden" }} />
                 </PicSelect>
                 <Preview ref={previewimage}></Preview>
             </Image>
