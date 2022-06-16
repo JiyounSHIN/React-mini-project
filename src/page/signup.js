@@ -48,6 +48,7 @@ const SignUp = () => {
                 nickname: nick_ref.current.value,
                 password: pw_ref.current.value
             }))
+            alert("회원가입 완료! 로그인해주세요 :)");
             navigate("/login")
         } else {
             window.alert("빈 값이 있습니다.")
