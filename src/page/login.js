@@ -48,7 +48,7 @@ const LogIn = () => {
                     <Input><p>username :</p>
                         <input type="text" placeholder="user ID 입력하세요" ref={name_ref} /></Input>
                     <Input><p>password : </p>
-                        <input type="text" placeholder="비밀번호 6~12자 입력하세요" ref={pw_ref} />
+                        <input type="password" placeholder="비밀번호 6~12자 입력하세요" ref={pw_ref} />
                         <Link onClick={() => { navigate("/signup") }}>아직 계정이 없으신가요?(회원가입)</Link></Input>
                 </div>
                 <ButtonWrap>

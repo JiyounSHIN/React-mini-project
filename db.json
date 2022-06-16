@@ -1,17 +1,6 @@
 {
   "postResponseDto": [
     {
-      "title": "멍멍",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/hw-magazine.appspot.com/o/images%2Fpets-3715733_1920.jpg?alt=media&token=da8b1615-e228-446f-aba1-1719a42f1ff6",
-      "category": "일상",
-      "content": "멍멍",
-      "username": "dogg",
-      "createdAt": "2022-06-14T11:13:10.612847",
-      "modifiedAt": "",
-      "likeCnt": 0,
-      "id": 1
-    },
-    {
       "title": "오늘 너무 힘든 하루 ㅠ_ㅠ",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/hw-magazine.appspot.com/o/images%2Fcat1.webp?alt=media&token=f23e7805-446c-4b2c-9cee-c81ab6f513c8",
       "category": "일상",
