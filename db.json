@@ -23,12 +23,12 @@
       "likeCnt": 0
     },
     {
-      "title": "스타벅스 알바다녀왔어용",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/hw-magazine.appspot.com/o/images%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202022-06-14%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%209.05.42.png?alt=media&token=09f3ac37-b3f6-41df-bc02-861f8daad24b",
+      "title": "저 스타벅스에서 일해용!!!",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/hw-magazine.appspot.com/o/images%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202022-06-14%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%209.05.42.png?alt=media&token=5fd066b2-76ad-4125-8409-f4b932382135",
       "category": "일상",
-      "content": "토이 귀여워",
-      "username": "toy",
-      "createdAt": "2022-06-14T11:13:10.612847",
+      "content": "놀러왕 *_*",
+      "username": "user3",
+      "createdAt": "2022-06-16T07:51:04.580Z",
       "modifiedAt": "",
       "likeCnt": 0,
       "id": 3
@@ -167,6 +167,13 @@
       "comment": "냐옹냐옹",
       "createdAt": "2022-06-16T06:33:35.266Z",
       "id": 7
+    },
+    {
+      "postId": "3",
+      "username": "username",
+      "comment": "지금 갈게요!!!!!",
+      "createdAt": "2022-06-16T07:15:10.344Z",
+      "id": 8
     }
   ]
 }

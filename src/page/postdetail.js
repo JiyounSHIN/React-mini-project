@@ -128,7 +128,7 @@ export default function Post() {
                   component="div"
                   align="right"
                 >
-                  username
+                  {data.username}
                 </Typography>
               </Grid>
             </Grid>
@@ -142,41 +142,15 @@ export default function Post() {
 
           {/* 3. 댓글 컴포넌트 부분 */}
           <Box sx={{ mt: 4 }}>
-            <Typography variant="body1" align="left">
-              댓글 (0)
-            </Typography>
+            <Typography variant="body1" align="left">댓글</Typography>
           </Box>
 
           {/* 3-1. 댓글 작성하기 */}
           <CommentWrite postId={post_index} />
 
           {/* 3-2. 댓글 목록 */}
-          {/* <List
-            sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
-          >
-            <ListItem alignItems="flex-start">
-              <ListItemAvatar>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-              </ListItemAvatar>
-              <ListItemText
-                primary="comment"
-                secondary={
-                  <React.Fragment>
-                    <Typography
-                      sx={{ display: "inline" }}
-                      component="span"
-                      variant="body2"
-                      color="text.primary"
-                    >
-                      Nickname
-                    </Typography>
-                    {" — 2022.06.15"}
-                  </React.Fragment>
-                }
-              />
-            </ListItem>
-          </List> */}
           <CommentList postId={post_index}/>
+
         </Box>
       </Container>
 

@@ -22,19 +22,7 @@ const CommentWrite = (props) => {
           comment: comment,
           username: "username",
       }))
-    // const date = new Date();
-    // const postComment = {
-    //     postId: postId,
-    //     comment: {comment},
-    //     createdAt: date,
-    // }
-    // setComment(postComment);
-    // apis
-    //     .commentWrite(postId, {comment})
-    //     .then((res) => {
-    //         console.log("!!!!!!!!");
-    //         console.log(res.data);
-    //     })
+
     setComment("");
     window.location.reload();
   };
