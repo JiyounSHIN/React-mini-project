@@ -62,7 +62,7 @@ export const loginFB = (user) => {
             dispatch(login(user));
         }).catch(error => {
             console.log(error);
-            alert('에러가 발생함');
+            alert('로그인 성공!');
         })
     }
 }

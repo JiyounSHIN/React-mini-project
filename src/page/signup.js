@@ -79,10 +79,10 @@ const SignUp = () => {
                         <Validation>{name}</Validation></Input>
                     <Input><p>nickname : </p><input placeholder="마이펫 이름 입력하세요" ref={nick_ref} /></Input>
                     <Input><p>password : </p>
-                        <input type="text" placeholder="비밀번호 6~12자 입력하세요" ref={pw_ref} onBlur={checkPW} />
+                        <input type="password" placeholder="비밀번호 6~12자 입력하세요" ref={pw_ref} onBlur={checkPW} />
                         <Validation>{pw}</Validation></Input>
                     <Input><p>passwordCheck :</p>
-                        <input type="text" placeholder="비밀번호 한번 더 확인하세요" ref={chk_ref} onBlur={samePW} />
+                        <input type="password" placeholder="비밀번호 한번 더 확인하세요" ref={chk_ref} onBlur={samePW} />
                         <Validation>{pwchk}</Validation></Input>
                 </div>
                 <ButtonWrap>

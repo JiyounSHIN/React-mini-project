@@ -45,15 +45,15 @@
       "likeCnt": 0
     },
     {
-      "id": 5,
-      "title": "제목입니다5555",
-      "imageUrl": "https://bunny.jjalbot.com/2022/02/d8RfM5c0g.jpeg",
+      "title": "수정 게시글입니다.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/hw-magazine.appspot.com/o/images%2Fcat2.jpeg?alt=media&token=4708df51-bf32-431e-bfd1-b5b60eeca509",
       "category": "용품",
-      "content": "안녕하세요5555",
-      "username": "junsj119",
-      "createdAt": "2022-06-14T11:13:10.612847",
-      "modifiedAt": "2022-06-14T11:13:10.612847",
-      "likeCnt": 0
+      "content": "수정 게시글입니다.",
+      "username": "user5",
+      "createdAt": "2022-06-16T10:35:59.817Z",
+      "modifiedAt": "",
+      "likeCnt": 0,
+      "id": 5
     },
     {
       "title": "여행 가고 싶어요",
@@ -77,14 +77,35 @@
       "id": 7
     },
     {
-      "title": "용품 카테고리",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/hw-magazine.appspot.com/o/images%2Fcat2.jpeg?alt=media&token=53a22226-687c-43f7-8f7f-ef015caf77df",
+      "title": "냐옹",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/hw-magazine.appspot.com/o/images%2Fcat1.webp?alt=media&token=fa95eb6a-5747-4905-9220-26ca11311c77",
       "category": "용품",
-      "content": "글 많이 써주세요",
-      "username": "username",
-      "createdAt": "2022-06-16T09:14:59.272Z",
+      "content": "냐옹",
+      "username": "user8",
+      "createdAt": "2022-06-16T09:21:36.960Z",
+      "modifiedAt": "",
       "likeCnt": 0,
       "id": 8
+    },
+    {
+      "title": "슬퍼요 ㅠㅠ",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/hw-magazine.appspot.com/o/images%2Fcat2.jpeg?alt=media&token=4368f0d2-2178-4566-8098-fbf10f818233",
+      "category": "여행",
+      "content": "ㅠㅠ",
+      "username": "username",
+      "createdAt": "2022-06-16T09:20:26.307Z",
+      "likeCnt": 0,
+      "id": 9
+    },
+    {
+      "title": "안녕하세요 냐옹!",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/hw-magazine.appspot.com/o/images%2Fcat1.webp?alt=media&token=3ad3e86a-b483-4864-a5e5-ad27963006c9",
+      "category": "용품",
+      "content": "용품 좋은거 소개해주세요~!",
+      "username": "username",
+      "createdAt": "2022-06-16T10:35:23.850Z",
+      "likeCnt": 0,
+      "id": 10
     }
   ],
   "signup": [
@@ -212,6 +233,48 @@
       "comment": "사진 잘나왔네요",
       "createdAt": "2022-06-16T08:50:30.685Z",
       "id": 9
+    },
+    {
+      "postId": "9",
+      "username": "username",
+      "comment": "발표 어떻게 하죠 ........",
+      "createdAt": "2022-06-16T09:20:40.961Z",
+      "id": 10
+    },
+    {
+      "postId": "5",
+      "username": "username",
+      "comment": "수정이",
+      "createdAt": "2022-06-16T09:21:17.936Z",
+      "id": 11
+    },
+    {
+      "postId": "8",
+      "username": "username",
+      "comment": "냐옹냐옹",
+      "createdAt": "2022-06-16T09:25:16.555Z",
+      "id": 12
+    },
+    {
+      "postId": "7",
+      "username": "username",
+      "comment": "반가워요 ~~",
+      "createdAt": "2022-06-16T09:25:58.298Z",
+      "id": 13
+    },
+    {
+      "postId": "10",
+      "username": "username",
+      "comment": "냐옹냐옹",
+      "createdAt": "2022-06-16T10:35:34.385Z",
+      "id": 14
+    },
+    {
+      "postId": "5",
+      "username": "username",
+      "comment": "수정이이이",
+      "createdAt": "2022-06-16T10:36:17.979Z",
+      "id": 15
     }
   ]
 }
