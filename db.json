@@ -5,10 +5,10 @@
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/hw-magazine.appspot.com/o/images%2Fpets-3715733_1920.jpg?alt=media&token=da8b1615-e228-446f-aba1-1719a42f1ff6",
       "category": "일상",
       "content": "멍멍",
-      "username": "",
-      "createdAt": "",
+      "username": "dogg",
+      "createdAt": "2022-06-14T11:13:10.612847",
       "modifiedAt": "",
-      "likeCnt": "",
+      "likeCnt": 0,
       "id": 1
     },
     {
@@ -28,9 +28,9 @@
       "category": "일상",
       "content": "토이 귀여워",
       "username": "toy",
-      "createdAt": "",
+      "createdAt": "2022-06-14T11:13:10.612847",
       "modifiedAt": "",
-      "likeCnt": "",
+      "likeCnt": 0,
       "id": 3
     },
     {
@@ -137,6 +137,36 @@
       "category": "여행",
       "content": "ㅇㅇㅇㅇㅇ",
       "id": 2
+    }
+  ],
+  "comment": [
+    {
+      "postId": "2",
+      "id": 4,
+      "comment": "댓글123",
+      "username": "junsj119",
+      "createdAt": "2022-06-15T09:35:20.213277"
+    },
+    {
+      "postId": "1",
+      "username": "username",
+      "comment": "멍멍",
+      "createdAt": "2022-06-16T06:13:11.358Z",
+      "id": 5
+    },
+    {
+      "postId": "2",
+      "username": "username",
+      "comment": "냐옹냐옹",
+      "createdAt": "2022-06-16T06:13:39.190Z",
+      "id": 6
+    },
+    {
+      "postId": "1",
+      "username": "username",
+      "comment": "냐옹냐옹",
+      "createdAt": "2022-06-16T06:33:35.266Z",
+      "id": 7
     }
   ]
 }
