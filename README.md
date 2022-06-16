@@ -1,25 +1,30 @@
-# Getting Started with Create React App
+# 우리 집 주인님이 제일 좋아! 🐶🐱🦊
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+애완동물을 사랑하는 사람들의 커뮤니티 입니다!
+서로 정보도 공유해요!
 
-## Available Scripts
+## 📍 프로젝트 기간 및 팀원
 
-In the project directory, you can run:
+- 프로젝트 기간: 2022.06.10 ~ 2022.06.16
+- Front-End: 신지연, 서정은
+- Back-End: 전성영, 노흥진
 
-### `yarn start`
+### 📍 사용 기술 및 라이브러리
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+#### Front-End
+- `JavaScript`
+- `React-router-dom`
+- `React-redux`
+- `Redux-thunk`
+- `Axios`
+- `Material-UI`
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 📍 프로젝트 시연 화면
 
-### `yarn test`
+[Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.](https://youtu.be/3ffdeijitXE)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
+### 📍 프로젝트 핵심 기능
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
@@ -29,7 +34,7 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
+### 📍 프로젝트 
 
 **Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
