@@ -64,8 +64,8 @@ const Postwrite = () => {
         // const file_url = await getDownloadURL(upload_file.ref);
         // console.log(file_url);
         let formData = new FormData();
-        formData.append("imageUrl", fileInput.current.files[0]);
         formData.append("title", title_ref.current.value);
+        formData.append("imageUrl", fileInput.current.files[0]);
         formData.append("category", selected);
         formData.append("content", content_ref.current.value);
         console.log(formData.getAll("imageUrl"))
@@ -86,6 +86,7 @@ const Postwrite = () => {
             console.log(response);
         }).catch(error => {
             console.log(error);
+            
             alert('에러가 발생함');
         })
 

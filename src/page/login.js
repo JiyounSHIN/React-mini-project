@@ -16,18 +16,15 @@ const LogIn = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    React.useEffect(async () => {
-        await axios.get('/user/idCheck/').then(res => {
-            setIdchk((res) => {
-                console.log(res);
-            }
-        )}).catch(err => {
-            console.log("에러났어");
-        });
-    }, [])
-
-
-
+    // React.useEffect(async () => {
+    //     await axios.get('/user/idCheck/').then(res => {
+    //         setIdchk((res) => {
+    //             console.log(res);
+    //         }
+    //     )}).catch(err => {
+    //         console.log("에러났어");
+    //     });
+    // }, [])
 
     const login = () => {
         console.log(name_ref.current.value, pw_ref.current.value)
@@ -35,7 +32,7 @@ const LogIn = () => {
             username: name_ref.current.value,
             password: pw_ref.current.value,
         }))
-        // navigate("/postwrite")
+        navigate("/")
     }
     return (
         <div style={{ fontSize: "22px" }}>
