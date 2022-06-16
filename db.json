@@ -75,6 +75,16 @@
       "createdAt": "2022-06-16T08:49:45.307Z",
       "likeCnt": 0,
       "id": 7
+    },
+    {
+      "title": "용품 카테고리",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/hw-magazine.appspot.com/o/images%2Fcat2.jpeg?alt=media&token=53a22226-687c-43f7-8f7f-ef015caf77df",
+      "category": "용품",
+      "content": "글 많이 써주세요",
+      "username": "username",
+      "createdAt": "2022-06-16T09:14:59.272Z",
+      "likeCnt": 0,
+      "id": 8
     }
   ],
   "signup": [

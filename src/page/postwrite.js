@@ -58,9 +58,8 @@ const Postwrite = () => {
     let image = fileInput.current.files[0];
     console.log(image);
     console.log(image.name);
-
-    // const upload_file = await uploadBytes(ref(storage, `images/${image.name}`), image);
-    // const file_url = await getDownloadURL(upload_file.ref);
+    const upload_file = await uploadBytes(ref(storage, `images/${image.name}`), image);
+    const file_url = await getDownloadURL(upload_file.ref);
     // console.log(file_url);
     let formData = new FormData();
     formData.append("title", title_ref.current.value);
@@ -92,6 +91,7 @@ const Postwrite = () => {
     dispatch(
       postWriteAPI({
         title: title_ref.current.value,
+        imageUrl: file_url,
         category: selected,
         content: content_ref.current.value,
         username: "username",

@@ -33,7 +33,7 @@ export const postWriteAPI = (post) => {
     return async function (dispatch) {
         const _postWrite = await axios.post("http://localhost:5001/postResponseDto", {
             title: post.title,
-            imageUrl: "https://bunny.jjalbot.com/2022/02/d8RfM5c0g.jpeg",
+            imageUrl: post.imageUrl,
             category: post.category,
             content: post.content,
             username: "username",
